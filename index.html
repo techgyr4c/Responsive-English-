@@ -120,34 +120,101 @@ gap:22px;
 }
 
 .menu-btn{
-min-height:120px;
-border-radius:24px;
-font-size:1.25rem;
-font-weight:700;
+position:relative;
+overflow:hidden;
+
+min-height:135px;
+border-radius:30px;
+
+font-size:1.35rem;
+font-weight:800;
 color:white;
+
 display:flex;
 align-items:center;
 justify-content:center;
-gap:12px;
-padding:20px;
+gap:14px;
+
+padding:25px;
+
+border:1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.12),
+inset 0 1px 2px rgba(255,255,255,.35);
+
+transition:.35s ease;
 }
 
+/* HOVER */
+.menu-btn:hover{
+transform:translateY(-6px) scale(1.02);
+}
+
+/* GLOW */
+.menu-btn::before{
+content:"";
+position:absolute;
+
+width:240px;
+height:240px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.16);
+
+top:-120px;
+right:-70px;
+
+filter:blur(10px);
+}
+
+/* TEXTURE */
+.menu-btn::after{
+content:"";
+position:absolute;
+inset:0;
+
+background-image:
+radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px);
+
+background-size:12px 12px;
+
+opacity:.16;
+}
+
+/* ICON + TEXT */
+.menu-btn i,
+.menu-btn span{
+position:relative;
+z-index:2;
+}
+
+/* Selection */
 .quiz-btn{
-background:linear-gradient(135deg,#ff416c,#B22222);
+background:
+linear-gradient(135deg,#ff4d7a,#d91b46);
 }
 
+/* Practice */
 .reading-btn{
-background:linear-gradient(135deg,#11998e,#38ef7d);
+background:
+linear-gradient(135deg,#14c38e,#3dff91);
 }
 
- .gamer-btn{
-  background:linear-gradient(135deg,#7FFF00,#ff4b2b); 
-  }
-  
-  .Theory-btn{
-  background:linear-gradient(135deg,#00BFFF,#4169E1); 
-  }
+/* Gamers */
+.gamer-btn{
+background:
+linear-gradient(135deg,#b6ff00,#ff6b3d);
+}
 
+/* Theory */
+.Theory-btn{
+background:
+linear-gradient(135deg,#00bfff,#4169e1);
+}
 /* ================= TOPBAR ================= */
 
 .topbar{
@@ -251,7 +318,8 @@ flex-direction:column;
 gap:12px;
 }
 
-.quiz-options button{
+.quiz-options 
+  {
 padding:15px;
 border-radius:14px;
 font-size:16px;
@@ -624,6 +692,86 @@ width:100%;
 }
 
 }
+  /* ===== CONTENT ===== */
+
+.menu-content{
+display:flex;
+align-items:center;
+gap:18px;
+position:relative;
+z-index:2;
+}
+
+/* ===== ICON ===== */
+
+.menu-icon{
+width:72px;
+height:72px;
+
+border-radius:24px;
+
+background:rgba(255,255,255,.22);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+inset 0 1px 2px rgba(255,255,255,.4),
+0 8px 20px rgba(0,0,0,.12);
+}
+
+.menu-icon i{
+font-size:30px;
+color:white;
+}
+
+/* ===== TEXT ===== */
+
+.menu-text h3{
+font-size:1.45rem;
+font-weight:800;
+margin-bottom:5px;
+}
+
+.menu-text p{
+font-size:.95rem;
+opacity:.92;
+font-weight:500;
+}
+
+/* ===== ARROW ===== */
+
+.menu-arrow{
+margin-left:auto;
+
+width:58px;
+height:58px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.22);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+backdrop-filter:blur(12px);
+
+position:relative;
+z-index:2;
+
+box-shadow:
+inset 0 1px 2px rgba(255,255,255,.4),
+0 8px 20px rgba(0,0,0,.12);
+}
+
+.menu-arrow i{
+font-size:18px;
+color:white;
+}
 
 </style>
 </head>
@@ -649,31 +797,98 @@ in one responsive app.
 
 <div class="menu-grid">
 
+<!-- Selection -->
 <button class="menu-btn quiz-btn"
 onclick="showScreen('quizScreen')">
 
-👀 Selection
+<div class="menu-content">
+
+<div class="menu-icon">
+<i class="fa-solid fa-bullseye"></i>
+</div>
+
+<div class="menu-text">
+<h3>Selection</h3>
+<p>Choose the correct answer</p>
+</div>
+
+</div>
+
+<div class="menu-arrow">
+<i class="fa-solid fa-chevron-right"></i>
+</div>
 
 </button>
 
+
+<!-- Practice -->
 <button class="menu-btn reading-btn"
 onclick="showScreen('readingScreen')">
 
-📖 Practice
+<div class="menu-content">
+
+<div class="menu-icon">
+<i class="fa-solid fa-book-open"></i>
+</div>
+
+<div class="menu-text">
+<h3>Practice</h3>
+<p>Exercises and activities</p>
+</div>
+
+</div>
+
+<div class="menu-arrow">
+<i class="fa-solid fa-chevron-right"></i>
+</div>
 
 </button>
-  
-  <button class="menu-btn gamer-btn"
+
+
+<!-- Gamers -->
+<button class="menu-btn gamer-btn"
 onclick="showScreen('')">
 
-🎮 Gamers
+<div class="menu-content">
+
+<div class="menu-icon">
+<i class="fa-solid fa-gamepad"></i>
+</div>
+
+<div class="menu-text">
+<h3>Gamers</h3>
+<p>Play while learning English</p>
+</div>
+
+</div>
+
+<div class="menu-arrow">
+<i class="fa-solid fa-chevron-right"></i>
+</div>
 
 </button>
- 
-   <button class="menu-btn Theory-btn"
+
+
+<!-- Theory -->
+<button class="menu-btn Theory-btn"
 onclick="showScreen('theoryScreen')">
 
-✍️ Theory
+<div class="menu-content">
+
+<div class="menu-icon">
+<i class="fa-solid fa-pen"></i>
+</div>
+
+<div class="menu-text">
+<h3>Theory</h3>
+<p>Grammar and explanations</p>
+</div>
+
+</div>
+
+<div class="menu-arrow">
+<i class="fa-solid fa-chevron-right"></i>
+</div>
 
 </button>
 
