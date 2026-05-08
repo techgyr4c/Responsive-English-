@@ -424,6 +424,151 @@ background:#1d976c;
 color:white;
 }
 
+  /* ================= THEORY ROADMAP ================= */
+
+.theory-container{
+max-width:1100px;
+margin:auto;
+}
+
+.roadmap{
+position:relative;
+padding-left:30px;
+margin-top:30px;
+}
+
+.roadmap::before{
+content:"";
+position:absolute;
+left:18px;
+top:0;
+width:4px;
+height:100%;
+background:rgba(255,255,255,.3);
+border-radius:20px;
+}
+
+.level-section{
+position:relative;
+margin-bottom:45px;
+}
+
+.level-dot{
+position:absolute;
+left:-20px;
+top:10px;
+width:22px;
+height:22px;
+border-radius:50%;
+background:white;
+border:5px solid #00f2fe;
+box-shadow:0 0 20px rgba(255,255,255,.6);
+}
+
+.level-title{
+font-size:2rem;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.theory-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+}
+
+.lesson-card{
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+padding:20px;
+border-radius:24px;
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+.lesson-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.lesson-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:5px;
+background:linear-gradient(90deg,#00f2fe,#4facfe);
+}
+
+.lesson-icon{
+font-size:2rem;
+margin-bottom:12px;
+}
+
+.lesson-name{
+font-size:1.2rem;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.lesson-desc{
+font-size:.95rem;
+line-height:1.6;
+opacity:.9;
+margin-bottom:15px;
+}
+
+.lesson-progress{
+height:8px;
+background:rgba(255,255,255,.15);
+border-radius:20px;
+overflow:hidden;
+}
+
+.lesson-progress span{
+display:block;
+height:100%;
+width:70%;
+background:white;
+border-radius:20px;
+}
+
+.level-a1 .level-dot{
+border-color:#38ef7d;
+}
+
+.level-a2 .level-dot{
+border-color:#00c6ff;
+}
+
+.level-b1 .level-dot{
+border-color:#a044ff;
+}
+
+.level-b2 .level-dot{
+border-color:#ff9800;
+}
+
+.level-c1 .level-dot{
+border-color:#ff416c;
+}
+
+@media(max-width:700px){
+
+.level-title{
+font-size:1.5rem;
+}
+
+.roadmap{
+padding-left:22px;
+}
+
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:700px){
@@ -526,7 +671,7 @@ onclick="showScreen('')">
 </button>
  
    <button class="menu-btn Theory-btn"
-onclick="showScreen('')">
+onclick="showScreen('theoryScreen')">
 
 ✍️ Theory
 
@@ -720,6 +865,334 @@ class="book-image">
 
 <div class="order-text"
 id="content"></div>
+
+</div>
+
+</div>
+
+</section>
+  <!-- ================= THEORY ================= -->
+
+<section id="theoryScreen" class="screen">
+
+<div class="topbar">
+
+<button class="back-btn"
+onclick="showScreen('homeScreen')">
+
+⬅ Back
+
+</button>
+
+<div class="page-title">
+English Theory Roadmap
+</div>
+
+</div>
+
+<div class="theory-container">
+
+<div class="roadmap">
+
+<!-- A1 -->
+
+<div class="level-section level-a1">
+
+<div class="level-dot"></div>
+
+<h2 class="level-title">
+🟢 A1 Beginner
+</h2>
+
+<div class="theory-grid">
+
+<div class="lesson-card">
+<div class="lesson-icon">🔤</div>
+<div class="lesson-name">Introduction</div>
+<div class="lesson-desc">
+Alphabet, greetings and basic English structure.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">👤</div>
+<div class="lesson-name">Pronouns</div>
+<div class="lesson-desc">
+Personal and possessive pronouns with examples.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🧩</div>
+<div class="lesson-name">Verb To Be</div>
+<div class="lesson-desc">
+Learn am, is and are in positive, negative and questions.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">📘</div>
+<div class="lesson-name">Articles</div>
+<div class="lesson-desc">
+Use of a, an and the with examples.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🏠</div>
+<div class="lesson-name">Nouns</div>
+<div class="lesson-desc">
+Singular, plural and irregular nouns.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">✨</div>
+<div class="lesson-name">Adjectives</div>
+<div class="lesson-desc">
+Common adjectives and sentence order.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- A2 -->
+
+<div class="level-section level-a2">
+
+<div class="level-dot"></div>
+
+<h2 class="level-title">
+🔵 A2 Elementary
+</h2>
+
+<div class="theory-grid">
+
+<div class="lesson-card">
+<div class="lesson-icon">📅</div>
+<div class="lesson-name">Present Simple</div>
+<div class="lesson-desc">
+Habits, routines and daily activities.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">⏳</div>
+<div class="lesson-name">Present Continuous</div>
+<div class="lesson-desc">
+Actions happening right now.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🕰️</div>
+<div class="lesson-name">Past Simple</div>
+<div class="lesson-desc">
+Regular and irregular verbs in past.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">📖</div>
+<div class="lesson-name">Past Continuous</div>
+<div class="lesson-desc">
+Interrupted actions in the past.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🚀</div>
+<div class="lesson-name">Future</div>
+<div class="lesson-desc">
+Will and going to for future plans.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- B1 -->
+
+<div class="level-section level-b1">
+
+<div class="level-dot"></div>
+
+<h2 class="level-title">
+🟣 B1 Intermediate
+</h2>
+
+<div class="theory-grid">
+
+<div class="lesson-card">
+<div class="lesson-icon">✅</div>
+<div class="lesson-name">Present Perfect</div>
+<div class="lesson-desc">
+Experiences and actions connected to present.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">⚡</div>
+<div class="lesson-name">Modal Verbs</div>
+<div class="lesson-desc">
+Can, should, must and more.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">📏</div>
+<div class="lesson-name">Comparatives</div>
+<div class="lesson-desc">
+Comparatives and superlatives.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🔀</div>
+<div class="lesson-name">Conditionals</div>
+<div class="lesson-desc">
+Zero, first, second and third conditional.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- B2 -->
+
+<div class="level-section level-b2">
+
+<div class="level-dot"></div>
+
+<h2 class="level-title">
+🟠 B2 Upper Intermediate
+</h2>
+
+<div class="theory-grid">
+
+<div class="lesson-card">
+<div class="lesson-icon">🎤</div>
+<div class="lesson-name">Reported Speech</div>
+<div class="lesson-desc">
+Transform direct speech into indirect speech.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🔧</div>
+<div class="lesson-name">Phrasal Verbs</div>
+<div class="lesson-desc">
+Most common phrasal verbs.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🔗</div>
+<div class="lesson-name">Connectors</div>
+<div class="lesson-desc">
+Improve fluency using connectors.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- C1 -->
+
+<div class="level-section level-c1">
+
+<div class="level-dot"></div>
+
+<h2 class="level-title">
+🔴 C1 Advanced
+</h2>
+
+<div class="theory-grid">
+
+<div class="lesson-card">
+<div class="lesson-icon">🧠</div>
+<div class="lesson-name">Advanced Grammar</div>
+<div class="lesson-desc">
+Inversion, cleft sentences and advanced structures.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+<div class="lesson-card">
+<div class="lesson-icon">🗣️</div>
+<div class="lesson-name">Fluency Tips</div>
+<div class="lesson-desc">
+Daily habits to reach advanced fluency.
+</div>
+<div class="lesson-progress">
+<span></span>
+</div>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
