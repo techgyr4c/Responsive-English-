@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Learn English App</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+min-height:100dvh;
+overflow-x:hidden;
+color:white;
+}
+
+/* ================= GLOBAL ================= */
+
+.screen{
+display:none;
+min-height:100dvh;
+padding:20px;
+}
+
+.active{
+display:block;
+animation:fade .35s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+button{
+border:none;
+outline:none;
+cursor:pointer;
+font-family:'Inter',sans-serif;
+transition:.25s;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+
+img{
+display:block;
+}
+
+.glass{
+background:rgba(255,255,255,.14);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.18);
+box-shadow:0 8px 30px rgba(0,0,0,.15);
+}
+
+/* ================= HOME ================= */
+
+.home{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100dvh;
+}
+
+.home-card{
+width:100%;
+max-width:550px;
+padding:35px;
+border-radius:30px;
+}
+
+.logo{
+font-size:2.2rem;
+font-weight:800;
+text-align:center;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+opacity:.9;
+line-height:1.6;
+margin-bottom:35px;
+}
+
+.menu-grid{
+display:grid;
+gap:22px;
+}
+
+.menu-btn{
+min-height:120px;
+border-radius:24px;
+font-size:1.25rem;
+font-weight:700;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+padding:20px;
+}
+
+.quiz-btn{
+background:linear-gradient(135deg,#ff416c,#B22222);
+}
+
+.reading-btn{
+background:linear-gradient(135deg,#11998e,#38ef7d);
+}
+
+ .gamer-btn{
+  background:linear-gradient(135deg,#7FFF00,#ff4b2b); 
+  }
+  
+  .Theory-btn{
+  background:linear-gradient(135deg,#00BFFF,#4169E1); 
+  }
+
+/* ================= TOPBAR ================= */
+
+.topbar{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:22px;
+flex-wrap:wrap;
+}
+
+.back-btn{
+background:black;
+color:white;
+padding:12px 18px;
+border-radius:14px;
+font-weight:700;
+}
+
+.page-title{
+font-size:1.5rem;
+font-weight:800;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz-categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+gap:16px;
+}
+
+.category{
+padding:20px;
+border-radius:22px;
+background:white;
+color:#222;
+font-weight:700;
+font-size:1rem;
+cursor:pointer;
+text-align:center;
+transition:.25s;
+}
+
+.category:hover{
+transform:translateY(-5px);
+}
+
+.quiz-game{
+display:none;
+justify-content:center;
+margin-top:25px;
+}
+
+.quiz-card{
+width:100%;
+max-width:430px;
+padding:20px;
+border-radius:28px;
+background:#1e3c72;
+}
+
+.quiz-top{
+display:flex;
+justify-content:space-between;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.progress-bar{
+height:8px;
+background:#ccc;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:18px;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:#7CFC00;
+transition:.3s;
+}
+
+.quiz-image{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:18px;
+background:#ddd;
+}
+
+.quiz-title{
+text-align:center;
+margin:18px 0;
+font-size:1.5rem;
+}
+
+.quiz-options{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.quiz-options button{
+padding:15px;
+border-radius:14px;
+font-size:16px;
+font-weight:700;
+color:white;
+min-height:55px;
+}
+
+.option1{
+background:#ff4b5c;
+}
+
+.option2{
+background:#28a745;
+}
+
+.option3{
+background:blue;
+}
+
+.feedback{
+margin-top:18px;
+text-align:center;
+font-weight:700;
+min-height:24px;
+}
+
+/* ================= BOOKS ================= */
+
+.books{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+}
+
+.book{
+background:white;
+color:#222;
+border-radius:24px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 6px 20px rgba(0,0,0,.1);
+}
+
+.book:hover{
+transform:translateY(-7px);
+}
+
+.book img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.book-title{
+padding:16px;
+font-weight:700;
+text-align:center;
+font-size:1.05rem;
+}
+
+/* ================= READER ================= */
+
+.reader{
+display:none;
+justify-content:center;
+}
+
+.document{
+width:100%;
+max-width:900px;
+background:#fcf7ec;
+border-radius:28px;
+padding:28px;
+color:#222;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.doc-title{
+font-size:2rem;
+font-weight:800;
+color:#b22234;
+margin-bottom:20px;
+}
+
+.book-image{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.order-text p{
+font-size:21px;
+line-height:1.9;
+margin-bottom:14px;
+font-family:Georgia,serif;
+}
+
+.word{
+cursor:pointer;
+padding:2px 3px;
+border-radius:5px;
+transition:.2s;
+}
+
+.word:hover{
+background:#ffeaa7;
+}
+
+.correct{
+color:#0a8f08;
+font-weight:700;
+}
+
+.incorrect{
+color:#d11a2a;
+font-weight:700;
+}
+
+.active-word{
+background:#ffeaa7;
+}
+
+.phonetic{
+font-style:italic;
+font-size:15px;
+opacity:.8;
+margin-bottom:12px;
+}
+
+.translation{
+display:none;
+background:#f5efe6;
+padding:14px;
+border-radius:14px;
+margin-bottom:12px;
+border-left:5px solid #b22234;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.actions button{
+flex:1;
+padding:14px;
+border-radius:12px;
+font-weight:700;
+min-width:110px;
+}
+
+.translate-btn{
+background:#3c3b6e;
+color:white;
+}
+
+.speak-btn{
+background:#ff4b5c;
+color:white;
+}
+
+.mic-btn{
+background:#1d976c;
+color:white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+.screen{
+padding:15px;
+}
+
+.logo{
+font-size:1.8rem;
+}
+
+.menu-btn{
+font-size:1rem;
+min-height:100px;
+}
+
+.page-title{
+font-size:1.2rem;
+}
+
+.quiz-image{
+height:200px;
+}
+
+.book img{
+height:220px;
+}
+
+.document{
+padding:18px;
+}
+
+.doc-title{
+font-size:1.5rem;
+}
+
+.book-image{
+height:230px;
+}
+
+.order-text p{
+font-size:17px;
+line-height:1.7;
+}
+
+.actions{
+flex-direction:column;
+}
+
+.actions button{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HOME ================= -->
+
+<section id="homeScreen" class="screen active">
+
+<div class="home">
+
+<div class="home-card glass">
+
+<div class="logo">
+📚 Learn English
+</div>
+
+<div class="subtitle">
+Practice vocabulary, speaking, pronunciation, reading, theory and fun games
+in one responsive app.
+</div>
+
+<div class="menu-grid">
+
+<button class="menu-btn quiz-btn"
+onclick="showScreen('quizScreen')">
+
+👀 What is this?
+
+</button>
+
+<button class="menu-btn reading-btn"
+onclick="showScreen('readingScreen')">
+
+📖 Practice Reading
+
+</button>
+  
+  <button class="menu-btn gamer-btn"
+onclick="showScreen('')">
+
+🎮 Gamers
+
+</button>
+ 
+   <button class="menu-btn Theory-btn"
+onclick="showScreen('')">
+
+✍️ Theory
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quizScreen" class="screen">
+
+<div class="topbar">
+
+<button class="back-btn"
+onclick="showScreen('homeScreen')">
+
+⬅ Back
+
+</button>
+
+<div class="page-title">
+What is this?
+</div>
+
+</div>
+
+<div class="quiz-categories">
+
+<div class="category"
+onclick="startQuiz('food')">
+
+🍎 Food
+
+</div>
+
+<div class="category"
+onclick="startQuiz('animals')">
+
+🐶 Animals
+
+</div>
+
+<div class="category"
+onclick="startQuiz('nature')">
+
+🌍 Nature
+
+</div>
+
+<div class="category"
+onclick="startQuiz('clothing')">
+
+👕 Clothing
+
+</div>
+
+<div class="category"
+onclick="startQuiz('sports')">
+
+⚽ Sports
+
+</div>
+
+<div class="category"
+onclick="startQuiz('city')">
+
+🏙️ City
+
+</div>
+  
+  <div class="category"
+onclick="startQuiz('art')">
+
+🎨 Arte
+
+</div>
+  
+    <div class="category"
+onclick="startQuiz('adjectives')">
+
+📏 Adjectives
+
+</div>
+
+
+</div>
+
+<!-- GAME -->
+
+<div class="quiz-game"
+id="quizGame">
+
+<div class="quiz-card">
+
+<div class="quiz-top">
+
+<div id="score">
+Score: 0
+</div>
+
+<div id="count">
+1/1
+</div>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress"
+id="progress"></div>
+
+</div>
+
+<div class="quiz-title">
+What is this?
+</div>
+
+<img id="quizImage"
+class="quiz-image"
+loading="lazy">
+
+<div class="quiz-options">
+
+<button class="option1"></button>
+
+<button class="option2"></button>
+
+<button class="option3"></button>
+
+</div>
+
+<div class="feedback"
+id="feedback"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= READING ================= -->
+
+<section id="readingScreen"
+class="screen">
+
+<div class="topbar">
+
+<button class="back-btn"
+onclick="showScreen('homeScreen')">
+
+⬅ Back
+
+</button>
+
+<div class="page-title">
+Practice Reading
+</div>
+
+</div>
+
+<!-- BOOKS -->
+
+<div class="books"
+id="books"></div>
+
+<!-- READER -->
+
+<div class="reader"
+id="reader">
+
+<div class="document">
+
+<button class="back-btn"
+onclick="goBackBooks()">
+
+⬅ Back
+
+</button>
+
+<h2 class="doc-title"
+id="bookTitle"></h2>
+
+<img id="bookImage"
+class="book-image">
+
+<div class="order-text"
+id="content"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= AUDIO ================= -->
+
+<audio id="correctSound"
+src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+
+<audio id="wrongSound"
+src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
+
+<script>
+
+/* ================= NAVIGATION ================= */
+
+function showScreen(id){
+
+document.querySelectorAll(".screen")
+.forEach(screen=>{
+
+screen.classList.remove("active");
+
+});
+
+document.getElementById(id)
+.classList.add("active");
+
+}
+
+/* ================= QUIZ DATA ================= */
+
+const categories = {
+
+/* FOOD */
+
+food: [
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg", opt: ["Apple", "Banana", "Orange"], ans: "Apple" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/2/20/Breads_of_Moskovskaya_Oblast._img_008.jpg", opt: ["Bread", "Rice", "Cheese"], ans: "Bread" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Moscow%2C_Savushkin-Produkt_Rossiysky_cheese_Feb.2025_02.jpg", opt: ["Milk", "Butter", "Cheese"], ans: "Cheese" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Chiken_in_a_plate.jpg", opt: ["Fish", "Chicken", "Beef"], ans: "Chicken" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/66/Rice_4.jpg", opt: ["Rice", "Pasta", "Soup"], ans: "Rice" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/9/96/Muskellunge_USFWS.jpg", opt: ["Chicken", "Fish", "Meat"], ans: "Fish" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Ardeotis_arabs_MHNT.ZOO.2010.11.71.1.jpg", opt: ["Milk", "Egg", "Butter"], ans: "Egg" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Milk_container_types.jpg", opt: ["Juice", "Milk", "Water"], ans: "Milk" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Cavendish_banana_from_Maracaibo.jpg", opt: ["Banana", "Apple", "Pear"], ans: "Banana" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Oranges_-_whole-halved-segment.jpg", opt: ["Orange", "Lemon", "Peach"], ans: "Orange" },
+  { img: "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg", opt: ["Potato", "Tomato", "Carrot"], ans: "Tomato" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/4/47/Russet_potato_cultivar_with_sprouts.jpg", opt: ["Potato", "Onion", "Garlic"], ans: "Potato" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/0/02/Red_Meat.jpg", opt: ["Meat", "Fish", "Chicken"], ans: "Meat" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Noodle_soup_beef_01.jpg", opt: ["Soup", "Salad", "Rice"], ans: "Soup" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/9/94/Salad_platter.jpg", opt: ["Salad", "Soup", "Pasta"], ans: "Salad" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Birthday_Cake_Bloomsburg%2C_Pennsylvania.jpg", opt: ["Cake", "Bread", "Cookie"], ans: "Cake" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Sweet_Sugar.jpg", opt: ["Salt", "Sugar", "Pepper"], ans: "Sugar" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Table_salt_with_salt_shaker_V1.jpg", opt: ["Sugar", "Salt", "Flour"], ans: "Salt" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Butter_curls.jpg", opt: ["Butter", "Milk", "Cheese"], ans: "Butter" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/4/48/A_plate_of_red_sauce_pasta.jpg", opt: ["Rice", "Pasta", "Noodles"], ans: "Pasta" }
+],
+
+/* ANIMALS */
+
+animals: [
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/61/20110425_German_Shepherd_Dog_8505.jpg", opt: ["Dog", "Cat", "Rabbit"], ans: "Dog" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/8/87/20231125_housecat_south_meadows_PD100306.jpg", opt: ["Mouse", "Cat", "Dog"], ans: "Cat" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Lion_%28Panthera_leo%29_male_6y.jpg", opt: ["Tiger", "Lion", "Leopard"], ans: "Lion" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/62/Panthera_tigris_sumatran_subspecies.jpg", opt: ["Tiger", "Lion", "Cat"], ans: "Tiger" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/d/da/Michael_Mwakalundwa_Ngorongoro_Elelphants.jpg", opt: ["Elephant", "Rhino", "Hippo"], ans: "Elephant" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Monkey_eating.jpg", opt: ["Monkey", "Dog", "Cat"], ans: "Monkey" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cow_%28Fleckvieh_breed%29_Oeschinensee_Slaunger_2009-07-07.jpg", opt: ["Cow", "Horse", "Sheep"], ans: "Cow" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Horseracing_Churchill_Downs.jpg", opt: ["Horse", "Cow", "Pig"], ans: "Horse" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Stubai_-_Tiroler_Bergschaf_-BT-_01.jpg", opt: ["Cow", "Goat", "Sheep"], ans: "Sheep" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/2/27/Sus_scrofa_domesticus%2C_miniature_pig%2C_juvenile.jpg", opt: ["Pig", "Cow", "Dog"], ans: "Pig" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Bunny_rabbit_at_Alligator_Bay%2C_Beauvoir%2C_France.jpg", opt: ["Rabbit", "Cat", "Dog"], ans: "Rabbit" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Kamchatka_Brown_Bear_near_Dvuhyurtochnoe_on_2015-07-23.jpg", opt: ["Bear", "Wolf", "Fox"], ans: "Bear" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg", opt: ["Wolf", "Dog", "Fox"], ans: "Wolf" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/0/03/Vulpes_vulpes_laying_in_snow.jpg", opt: ["Fox", "Wolf", "Dog"], ans: "Fox" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/12/A_spotted_deer_crossing_a_road_inside_Jim_Corbett_national_park%2C_Uttarakhand%2C_India.jpg", opt: ["Deer", "Horse", "Cow"], ans: "Deer" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/2/24/Male_mallard_duck_2.jpg", opt: ["Chicken", "Duck", "Goose"], ans: "Duck" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/3/34/Kaiseradler_Aquila_heliaca_2_amk.jpg", opt: ["Eagle", "Hawk", "Falcon"], ans: "Eagle" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/10/Tursiops_truncatus_01.jpg", opt: ["Whale", "Dolphin", "Shark"], ans: "Dolphin" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Great_white_shark_south_africa.jpg", opt: ["Fish", "Shark", "Whale"], ans: "Shark" }
+],
+
+/* NATURE */
+
+nature: [
+{ img: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Flooded_Albizia_Saman_%28rain_tree%29_in_the_Mekong.jpg", opt: ["Tree", "Flower", "Grass"], ans: "Tree" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/French_marigold_garden_2009_G1.jpg", opt: ["Flower", "Tree", "Leaf"], ans: "Flower" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/19/Tungabhadra_River_and_Coracle_Boats.JPG", opt: ["River", "Ocean", "Lake"], ans: "River" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Ergaki%2C_Buiba_Valley%2C_Western_Sayan_Mountains%2C_Krasnoyarsk_Krai%2C_Russia.jpg", opt: ["Mountain", "Hill", "Valley"], ans: "Mountain" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/62/NorthBeach_WillingaPoint_Bawley.jpg", opt: ["River", "Ocean", "Sea"], ans: "Ocean" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Sky_over_Munich_02.jpg", opt: ["Sky", "Cloud", "Sun"], ans: "Sky" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/f/f7/SUN_2.jpg", opt: ["Star", "Moon", "Sun"], ans: "Sun" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Full_Moon_Luc_Viatour.jpg", opt: ["Moon", "Sun", "Star"], ans: "Moon" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Star-03122022.svg", opt: ["Star", "Moon", "Sun"], ans: "Star" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/8/84/Rain_in_Malta_06.jpg", opt: ["Wind", "Snow", "Rain"], ans: "Rain" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/3/34/%D0%9A%D0%BE%D0%B2%D0%B8%D0%BB%D0%B0%2C_%D0%A2%D0%B0%D1%80%D1%83%D1%82%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D1%81%D1%82%D0%B5%D0%BF%2C_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0.jpg", opt: ["Wind", "Rain", "Storm"], ans: "Wind" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Large_cloud_over_Mexican_landscape.jpg", opt: ["Cloud", "Sky", "Rain"], ans: "Cloud" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/3/36/D%C3%BClmen%2C_G%C3%B6versheide_--_2015_--_7718-22.jpg", opt: ["Forest", "Jungle", "Park"], ans: "Forest" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Beach%2C_New_Brighton%2C_New_Zealand_06.jpg", opt: ["Beach", "Ocean", "Sand"], ans: "Beach" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Gletsjerpad_naar_de_Morteratschgletsjer_12-09-2019._%28d.j.b%29_28.jpg", opt: ["Stone", "Rock", "Sand"], ans: "Stone" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/2/2a/FIRE_01.JPG", opt: ["Leaf", "Tree", "Flower"], ans: "Leaf" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/2/2a/FIRE_01.JPG", opt: ["Fire", "Water", "Air"], ans: "Fire" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/d/d8/IceBirdWithFledgling.jpg", opt: ["Ice", "Snow", "Water"], ans: "Ice" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Dunes%2C_D%C3%A9sert_du_Thar.jpg", opt: ["Desert", "Forest", "Mountain"], ans: "Desert" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Jiuzhaigou_Pearl_Waterfall_2005-08-21.jpeg", opt: ["Waterfall", "River", "Ocean"], ans: "Waterfall" }
+],
+
+
+/* CLOTHING */
+
+clothing: [
+{ img: "https://upload.wikimedia.org/wikipedia/commons/0/09/Shirt%2C_men%27s_%28AM_2015.44.1-1%29.jpg", opt: ["Jacket", "Shirt", "Dress"], ans: "Shirt" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Trousers.jpg", opt: ["Jeans", "Shorts", "Pants"], ans: "Pants" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/18/Christian_Dior_Dress_indianapolis.jpg", opt: ["Dress", "Skirt", "Shirt"], ans: "Dress" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/6/60/Women%27s_Navy_Skirt%2C_ca._1895.jpg", opt: ["Skirt", "Dress", "Shorts"], ans: "Skirt" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/4/46/Windbreaker_Jacket%2C_Hood_Outside.jpg", opt: ["Jacket", "Coat", "Shirt"], ans: "Jacket" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/5/50/Norma_Kamali_%22Sleeping_Bag%22_coat%2C_1980-1985.jpg", opt: ["Coat", "Jacket", "Sweater"], ans: "Coat" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Mizuno_shoes_Wave_Renegade_3.jpg", opt: ["Shoes", "Boots", "Sandals"], ans: "Shoes" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/4/47/Knitted_socks_by_Safa-Samnanger.jpg", opt: ["Socks", "Gloves", "Shoes"], ans: "Socks" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/a/a5/A_local_grass_hat.jpg", opt: ["Hat", "Cap", "Helmet"], ans: "Hat" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/7/77/A_Nike_Cap.jpg", opt: ["Cap", "Hat", "Scarf"], ans: "Cap" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Grandpa_Sweater_full_pattern_H%26M.jpg", opt: ["Sweater", "Shirt", "Jacket"], ans: "Sweater" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/a/af/Tee_shirt_avec_impression_de_croix_huguenote.jpg", opt: ["T-shirt", "Shirt", "Sweater"], ans: "T-shirt" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Jeans.jpg", opt: ["Jeans", "Pants", "Shorts"], ans: "Jeans" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Shorts_%28clothing%29.jpg", opt: ["Shorts", "Pants", "Skirt"], ans: "Shorts" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/1/18/Germany_Belt-and-Buckle-02.jpg", opt: ["Belt", "Tie", "Scarf"], ans: "Belt" },
+{ img: "https://upload.wikimedia.org/wikipedia/commons/2/2c/BMX_glove_-_top.jpg", opt: ["Gloves", "Socks", "Shoes"], ans: "Gloves" },
+{ img: "https://loremflickr.com/600/400/scarf", opt: ["Scarf", "Hat", "Coat"], ans: "Scarf" },
+{ img: "https://loremflickr.com/600/400/boots", opt: ["Boots", "Shoes", "Sandals"], ans: "Boots" },
+{ img: "https://loremflickr.com/600/400/sandals", opt: ["Sandals", "Shoes", "Boots"], ans: "Sandals" },
+{ img: "https://loremflickr.com/600/400/suit", opt: ["Suit", "Dress", "Shirt"], ans: "Suit" }
+],
+
+
+/* SPORTS */
+
+sports: [
+{ img: "https://loremflickr.com/600/400/soccer", opt: ["Soccer", "Basketball", "Tennis"], ans: "Soccer" },
+{ img: "https://loremflickr.com/600/400/basketball", opt: ["Basketball", "Soccer", "Baseball"], ans: "Basketball" },
+{ img: "https://loremflickr.com/600/400/baseball", opt: ["Baseball", "Tennis", "Golf"], ans: "Baseball" },
+{ img: "https://loremflickr.com/600/400/tennis", opt: ["Tennis", "Badminton", "Squash"], ans: "Tennis" },
+{ img: "https://loremflickr.com/600/400/volleyball", opt: ["Volleyball", "Basketball", "Soccer"], ans: "Volleyball" },
+{ img: "https://loremflickr.com/600/400/swimming", opt: ["Swimming", "Running", "Cycling"], ans: "Swimming" },
+{ img: "https://loremflickr.com/600/400/running", opt: ["Running", "Walking", "Jumping"], ans: "Running" },
+{ img: "https://loremflickr.com/600/400/cycling", opt: ["Cycling", "Running", "Driving"], ans: "Cycling" },
+{ img: "https://loremflickr.com/600/400/boxing", opt: ["Boxing", "Wrestling", "Karate"], ans: "Boxing" },
+{ img: "https://loremflickr.com/600/400/golf", opt: ["Golf", "Tennis", "Baseball"], ans: "Golf" },
+{ img: "https://loremflickr.com/600/400/rugby", opt: ["Rugby", "Soccer", "Football"], ans: "Rugby" },
+{ img: "https://loremflickr.com/600/400/hockey", opt: ["Hockey", "Soccer", "Basketball"], ans: "Hockey" },
+{ img: "https://loremflickr.com/600/400/gymnastics", opt: ["Gymnastics", "Dance", "Yoga"], ans: "Gymnastics" },
+{ img: "https://loremflickr.com/600/400/skiing", opt: ["Skiing", "Snowboarding", "Skating"], ans: "Skiing" },
+{ img: "https://loremflickr.com/600/400/surfing", opt: ["Surfing", "Swimming", "Sailing"], ans: "Surfing" },
+{ img: "https://loremflickr.com/600/400/karate", opt: ["Karate", "Judo", "Taekwondo"], ans: "Karate" },
+{ img: "https://loremflickr.com/600/400/wrestling", opt: ["Wrestling", "Boxing", "Karate"], ans: "Wrestling" },
+{ img: "https://loremflickr.com/600/400/skateboarding", opt: ["Skateboarding", "Cycling", "Running"], ans: "Skateboarding" },
+{ img: "https://loremflickr.com/600/400/climbing", opt: ["Climbing", "Hiking", "Running"], ans: "Climbing" },
+{ img: "https://loremflickr.com/600/400/archery", opt: ["Archery", "Shooting", "Fishing"], ans: "Archery" }
+],
+
+/* CITY */
+city: [
+{ img: "https://loremflickr.com/600/400/street", opt: ["Street", "Road", "Highway"], ans: "Street" },
+{ img: "https://loremflickr.com/600/400/car", opt: ["Car", "Bus", "Bike"], ans: "Car" },
+{ img: "https://loremflickr.com/600/400/bus", opt: ["Bus", "Car", "Train"], ans: "Bus" },
+{ img: "https://loremflickr.com/600/400/taxi", opt: ["Taxi", "Bus", "Car"], ans: "Taxi" },
+{ img: "https://loremflickr.com/600/400/building", opt: ["Building", "House", "Office"], ans: "Building" },
+{ img: "https://loremflickr.com/600/400/park", opt: ["Park", "Garden", "Forest"], ans: "Park" },
+{ img: "https://loremflickr.com/600/400/hospital", opt: ["Hospital", "School", "Bank"], ans: "Hospital" },
+{ img: "https://loremflickr.com/600/400/school", opt: ["School", "Library", "Office"], ans: "School" },
+{ img: "https://loremflickr.com/600/400/store", opt: ["Store", "Market", "Shop"], ans: "Store" },
+{ img: "https://loremflickr.com/600/400/restaurant", opt: ["Restaurant", "Cafe", "Bar"], ans: "Restaurant" },
+{ img: "https://loremflickr.com/600/400/bank", opt: ["Bank", "Office", "Store"], ans: "Bank" },
+{ img: "https://loremflickr.com/600/400/police", opt: ["Police", "Firefighter", "Doctor"], ans: "Police" },
+{ img: "https://loremflickr.com/600/400/traffic", opt: ["Traffic", "Road", "Car"], ans: "Traffic" },
+{ img: "https://loremflickr.com/600/400/bridge", opt: ["Bridge", "Road", "Tunnel"], ans: "Bridge" },
+{ img: "https://loremflickr.com/600/400/road", opt: ["Road", "Street", "Highway"], ans: "Road" },
+{ img: "https://loremflickr.com/600/400/apartment", opt: ["Apartment", "House", "Building"], ans: "Apartment" },
+{ img: "https://loremflickr.com/600/400/office", opt: ["Office", "Building", "Bank"], ans: "Office" },
+{ img: "https://loremflickr.com/600/400/market", opt: ["Market", "Store", "Shop"], ans: "Market" },
+{ img: "https://loremflickr.com/600/400/subway", opt: ["Subway", "Train", "Bus"], ans: "Subway" },
+{ img: "https://loremflickr.com/600/400/hotel", opt: ["Hotel", "Apartment", "House"], ans: "Hotel" }
+], 
+  
+  /* ART */
+  art: [
+{ img: "https://loremflickr.com/600/400/painting", opt: ["Painting", "Drawing", "Photo"], ans: "Painting" },
+{ img: "https://loremflickr.com/600/400/drawing", opt: ["Drawing", "Painting", "Sketch"], ans: "Drawing" },
+{ img: "https://loremflickr.com/600/400/sculpture", opt: ["Sculpture", "Painting", "Art"], ans: "Sculpture" },
+{ img: "https://loremflickr.com/600/400/music", opt: ["Music", "Dance", "Art"], ans: "Music" },
+{ img: "https://loremflickr.com/600/400/dance", opt: ["Dance", "Music", "Sport"], ans: "Dance" },
+{ img: "https://loremflickr.com/600/400/theater", opt: ["Theater", "Cinema", "Stage"], ans: "Theater" },
+{ img: "https://loremflickr.com/600/400/film", opt: ["Film", "Photo", "Video"], ans: "Film" },
+{ img: "https://loremflickr.com/600/400/design", opt: ["Design", "Art", "Drawing"], ans: "Design" },
+{ img: "https://loremflickr.com/600/400/color", opt: ["Color", "Paint", "Art"], ans: "Color" },
+{ img: "https://loremflickr.com/600/400/canvas", opt: ["Canvas", "Paper", "Wall"], ans: "Canvas" },
+{ img: "https://loremflickr.com/600/400/brush", opt: ["Brush", "Pen", "Pencil"], ans: "Brush" },
+{ img: "https://loremflickr.com/600/400/gallery", opt: ["Gallery", "Museum", "Hall"], ans: "Gallery" },
+{ img: "https://loremflickr.com/600/400/artist", opt: ["Artist", "Painter", "Singer"], ans: "Artist" },
+{ img: "https://loremflickr.com/600/400/sketch", opt: ["Sketch", "Drawing", "Painting"], ans: "Sketch" },
+{ img: "https://loremflickr.com/600/400/portrait", opt: ["Portrait", "Photo", "Painting"], ans: "Portrait" },
+{ img: "https://loremflickr.com/600/400/illustration", opt: ["Illustration", "Drawing", "Art"], ans: "Illustration" },
+{ img: "https://loremflickr.com/600/400/photography", opt: ["Photography", "Painting", "Art"], ans: "Photography" },
+{ img: "https://loremflickr.com/600/400/creativity", opt: ["Creativity", "Art", "Design"], ans: "Creativity" },
+{ img: "https://loremflickr.com/600/400/style", opt: ["Style", "Fashion", "Art"], ans: "Style" },
+{ img: "https://loremflickr.com/600/400/exhibition", opt: ["Exhibition", "Gallery", "Show"], ans: "Exhibition" }
+],
+  
+  adjectives: [
+{ img: "https://loremflickr.com/600/400/big", opt: ["Big", "Small", "Tiny"], ans: "Big" },
+{ img: "https://loremflickr.com/600/400/small", opt: ["Small", "Big", "Large"], ans: "Small" },
+{ img: "https://loremflickr.com/600/400/happy", opt: ["Happy", "Sad", "Angry"], ans: "Happy" },
+{ img: "https://loremflickr.com/600/400/sad", opt: ["Sad", "Happy", "Excited"], ans: "Sad" },
+{ img: "https://loremflickr.com/600/400/fast", opt: ["Fast", "Slow", "Quick"], ans: "Fast" },
+{ img: "https://loremflickr.com/600/400/slow", opt: ["Slow", "Fast", "Quick"], ans: "Slow" },
+{ img: "https://loremflickr.com/600/400/hot", opt: ["Hot", "Cold", "Warm"], ans: "Hot" },
+{ img: "https://loremflickr.com/600/400/cold", opt: ["Cold", "Hot", "Cool"], ans: "Cold" },
+{ img: "https://loremflickr.com/600/400/easy", opt: ["Easy", "Hard", "Difficult"], ans: "Easy" },
+{ img: "https://loremflickr.com/600/400/difficult", opt: ["Difficult", "Easy", "Simple"], ans: "Difficult" },
+{ img: "https://loremflickr.com/600/400/beautiful", opt: ["Beautiful", "Ugly", "Plain"], ans: "Beautiful" },
+{ img: "https://loremflickr.com/600/400/ugly", opt: ["Ugly", "Beautiful", "Pretty"], ans: "Ugly" },
+{ img: "https://loremflickr.com/600/400/strong", opt: ["Strong", "Weak", "Soft"], ans: "Strong" },
+{ img: "https://loremflickr.com/600/400/weak", opt: ["Weak", "Strong", "Powerful"], ans: "Weak" },
+{ img: "https://loremflickr.com/600/400/new", opt: ["New", "Old", "Modern"], ans: "New" },
+{ img: "https://loremflickr.com/600/400/old", opt: ["Old", "New", "Ancient"], ans: "Old" },
+{ img: "https://loremflickr.com/600/400/clean", opt: ["Clean", "Dirty", "Messy"], ans: "Clean" },
+{ img: "https://loremflickr.com/600/400/dirty", opt: ["Dirty", "Clean", "Fresh"], ans: "Dirty" },
+{ img: "https://loremflickr.com/600/400/bright", opt: ["Bright", "Dark", "Dim"], ans: "Bright" },
+{ img: "https://loremflickr.com/600/400/dark", opt: ["Dark", "Bright", "Light"], ans: "Dark" }
+]
+};
+
+/* ================= QUIZ ================= */
+
+let quizData = [];
+let currentQuestion = 0;
+let quizScore = 0;
+
+const quizGame =
+document.getElementById("quizGame");
+
+const quizImage =
+document.getElementById("quizImage");
+
+const optionButtons =
+document.querySelectorAll(".quiz-options button");
+
+function startQuiz(category){
+
+quizGame.style.display="flex";
+
+quizData = [...categories[category]];
+
+currentQuestion = 0;
+
+quizScore = 0;
+
+document.getElementById("score")
+.innerText="Score: 0";
+
+loadQuestion();
+
+}
+
+function loadQuestion(){
+
+const q = quizData[currentQuestion];
+
+quizImage.src = q.img;
+
+document.getElementById("count")
+.innerText=
+`${currentQuestion+1}/${quizData.length}`;
+
+document.getElementById("progress")
+.style.width=
+((currentQuestion)/quizData.length)*100+"%";
+
+optionButtons.forEach((btn,index)=>{
+
+btn.disabled=false;
+
+btn.innerText=q.opt[index];
+
+btn.classList.remove("correct-answer");
+btn.classList.remove("wrong-answer");
+
+btn.onclick=()=>{
+
+checkAnswer(btn,q.opt[index]);
+
+};
+
+});
+
+document.getElementById("feedback")
+.innerText="";
+
+speakSequence(q.opt);
+
+}
+
+function checkAnswer(button,selected){
+
+const correct =
+quizData[currentQuestion].ans;
+
+optionButtons.forEach(btn=>{
+
+btn.disabled=true;
+
+});
+
+if(selected===correct){
+
+button.style.background="green";
+
+document.getElementById("feedback")
+.innerText="✅ Correct!";
+
+document.getElementById("correctSound")
+.play();
+
+quizScore++;
+
+document.getElementById("score")
+.innerText="Score: "+quizScore;
+
+}else{
+
+button.style.background="red";
+
+document.getElementById("feedback")
+.innerText=
+"❌ Correct answer: "+correct;
+
+document.getElementById("wrongSound")
+.play();
+
+}
+
+setTimeout(()=>{
+
+currentQuestion++;
+
+if(currentQuestion<quizData.length){
+
+loadQuestion();
+
+}else{
+
+document.getElementById("progress")
+.style.width="100%";
+
+document.getElementById("feedback")
+.innerText=
+`🎉 Final Score: ${quizScore}/${quizData.length}`;
+
+}
+
+},1500);
+
+}
+
+/* ================= SPEAK ================= */
+
+function speak(text,delay=0){
+
+setTimeout(()=>{
+
+const msg =
+new SpeechSynthesisUtterance(text);
+
+msg.lang="en-US";
+
+msg.rate=.95;
+
+speechSynthesis.speak(msg);
+
+},delay);
+
+}
+
+function speakSequence(options){
+
+speechSynthesis.cancel();
+
+speak("What is this?");
+
+options.forEach((word,index)=>{
+
+speak(word,(index+1)*900);
+
+});
+
+}
+
+function speakParagraph(text){
+
+speechSynthesis.cancel();
+
+const msg =
+new SpeechSynthesisUtterance(text);
+
+msg.lang="en-US";
+
+msg.rate=.9;
+
+speechSynthesis.speak(msg);
+
+}
+
+/* ================= BOOKS DATA ================= */
+
+const booksData = [
+
+{
+title:"Stronger Than Yesterday",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXHDTSq2w4tmRTko8N18ORGtBpY_Ew9reYhw&s",
+content:[
+{en:"There was a time when everything felt impossible and burdensome",ph:"der uoz a taim uen evriting felt imposibl and bérdensom", es:"Hubo un momento en que todo se sentía imposible y pesado."},
+{en:"You doubted yourself and questioned your path.",ph:"yu dáuted yorself and cuestiond yor path",es:"Dudaste de ti mismo y cuestionaste tu camino."},
+{en:"But deep inside, a small voice told you to keep going.",ph:"bat dip insaid, a smol vois told yu tu kip góuin",es:"Pero en el fondo, una pequeña voz te decía que siguieras adelante."},
+{en:"Step by step, you started to rise again.",ph:"step bai step, yu stárted tu rais aguen",es:"Paso a paso, comenzaste a levantarte de nuevo."},
+{en:"You learned that failure is not the end, but a lesson.",ph:"yu lernd dat féilior is not de end, bat a lésen",es:"Aprendiste que el fracaso no es el final, sino una lección."},
+{en:"Every challenge made you stronger and wiser.",ph:"evri chálens meid yu strónger and uáiser",es:"Cada desafío te hizo más fuerte y más sabio."},
+{en:"You stopped comparing yourself to others.",ph:"yu stopt compéring yorself tu óders",es:"Dejaste de compararte con los demás."},
+{en:"Instead, you focused on your own growth.",ph:"instéd, yu fóucost on yor oun gróuth",es:"En cambio, te enfocaste en tu propio crecimiento."},
+{en:"Now you see how far you have come.",ph:"nau yu si jau far yu jav com",es:"Ahora ves lo lejos que has llegado."},
+{en:"And you realize you are capable of achieving anything.",ph:"and yu ríalais yu ar kéipabl of achíving énithing",es:"Y te das cuenta de que eres capaz de lograr cualquier cosa."}
+]
+},
+{
+title:"Don’t Lose What You Built",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQld6-dybi-PnCr1T44A19xj50WBNb5utBDIQ&s",
+content:[
+{en:"You worked hard to build your business from nothing.",ph:"yu uorkt jard tu bild yor bísnes from názin",es:"Trabajaste duro para construir tu negocio desde cero."},
+{en:"Every dollar, every decision, every sacrifice mattered.",ph:"évri dálar, évri disíshon, évri sácrifais máterd",es:"Cada dólar, cada decisión, cada sacrificio importó."},
+{en:"But success is not only about earning, it is about managing.",ph:"bat saksés is not ónli abaut érning, it is abaut mánayín",es:"Pero el éxito no solo se trata de ganar, sino de administrar."},
+{en:"Many lose everything because they forget discipline.",ph:"méni luz évriting bicós dei forgét dísciplin",es:"Muchos lo pierden todo porque olvidan la disciplina."},
+{en:"Do not spend just to impress others.",ph:"du not spend yast tu imprés óders",es:"No gastes solo para impresionar a los demás."},
+{en:"Invest wisely and think about the future.",ph:"invést uáisli and zink abaut de fiúcher",es:"Invierte sabiamente y piensa en el futuro."},
+{en:"Your business is not a game, it is your responsibility.",ph:"yor bísnes is not a gueim, it is yor risponsabíliti",es:"Tu negocio no es un juego, es tu responsabilidad."},
+{en:"Stay focused, stay humble, and stay consistent.",ph:"stei fóucost, stei jámbol, and stei consístent",es:"Mantente enfocado, humilde y constante."},
+{en:"Growth comes from smart decisions, not fast money.",ph:"gróuz cams from smart disíshons, not fast máni",es:"El crecimiento viene de decisiones inteligentes, no del dinero rápido."},
+{en:"Protect what you built, because not everyone gets a second chance.",ph:"proték uat yu bilt, bicós not évriuan gets a sécond chans",es:"Protege lo que construiste, porque no todos tienen una segunda oportunidad."}
+]
+},
+{
+title:"Choose Yourself",
+img:"https://donporque.com/wp-content/uploads/2026/03/superacion-personal-y-agotamiento.webp",
+content:[
+{en:"There was a time when you forgot your own worth.",ph:"der uoz a taim uen yu forgát yor oun uerz",es:"Hubo un tiempo en que olvidaste tu propio valor."},
+{en:"You gave so much love but received so little.",ph:"yu gueiv so mach lov bat risívd so lírol",es:"Diste tanto amor pero recibiste tan poco."},
+{en:"You tried to be enough for everyone else.",ph:"yu traid tu bi ináf for évriuan els",es:"Intentaste ser suficiente para todos los demás."},
+{en:"Until one day, you chose yourself.",ph:"antíl uan dei, yu chous yorself",es:"Hasta que un día, te elegiste a ti mismo."},
+{en:"You started to set boundaries and respect your peace.",ph:"yu stárted tu set báundaris and rispéct yor pis",es:"Comenzaste a poner límites y respetar tu paz."},
+{en:"You learned that your value does not depend on others.",ph:"yu lernd dat yor váliu das not dipénd on óders",es:"Aprendiste que tu valor no depende de los demás."},
+{en:"Slowly, you began to heal and grow.",ph:"slóuli yu bigán tu jil and grou",es:"Poco a poco, comenzaste a sanar y crecer."},
+{en:"You embraced your flaws and your strengths.",ph:"yu embréist yor flós and yor stréngz",es:"Abrazaste tus defectos y tus fortalezas."},
+{en:"Now you no longer chase love, you attract it.",ph:"nau yu no lónger chéiss lov, yu atrákt it",es:"Ahora ya no persigues el amor, lo atraes."},
+{en:"Because you finally understand that you are enough.",ph:"bicós yu fáinali anderstánd dat yu ar ináf",es:"Porque finalmente entiendes que eres suficiente."}
+]
+},
+{
+title:"The Dream Journey",
+img:"https://hips.hearstapps.com/hmg-prod/images/gettyimages-1670882236.jpg",
+content:[
+{en:"You always dreamed of seeing the world beyond your limits.",ph:"yu ólweis drimd ov síin de uorld biyónd yor límits",es:"Siempre soñaste con ver el mundo más allá de tus límites."},
+{en:"For a long time, it felt far away and impossible.",ph:"for a long taim, it felt far awéi and imposibl",es:"Durante mucho tiempo, se sintió lejano e imposible."},
+{en:"But one day, you decided to take the first step.",ph:"bat uan dei, yu disáidid tu teik de ferst step",es:"Pero un día, decidiste dar el primer paso."},
+{en:"You saved, planned, and believed in your dream.",ph:"yu seivd, pland, and bilívd in yor drim",es:"Ahorraste, planeaste y creíste en tu sueño."},
+{en:"The journey was not easy, but it was worth it.",ph:"de yérni uoz not ísi, bat it uoz uert it",es:"El viaje no fue fácil, pero valió la pena."},
+{en:"You discovered new places, cultures, and perspectives.",ph:"yu discóverd niu pléisiz, kálchers, and perspéctivs",es:"Descubriste nuevos lugares, culturas y perspectivas."},
+{en:"Every moment taught you something new about life.",ph:"évri móument tot yu sámzin niu abaut laif",es:"Cada momento te enseñó algo nuevo sobre la vida."},
+{en:"You realized the world is bigger than your fears.",ph:"yu ríalaisd de uorld is bíger dan yor fíers",es:"Te diste cuenta de que el mundo es más grande que tus miedos."},
+{en:"And your dreams are closer than you think.",ph:"and yor drims ar clóuser dan yu zink",es:"Y tus sueños están más cerca de lo que piensas."},
+{en:"Because the greatest journey begins when you believe.",ph:"bicós de gréitest yérni bigíns uen yu bilív",es:"Porque el viaje más grande comienza cuando crees."}
+]
+},
+{
+title:"Find Your Inner Peace",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmSAzY8D3oHu4xUNnqWTIu15rwc5_SP0_4ag&s",
+content:[
+{en:"There are moments when life feels overwhelming and chaotic.",ph:"der ar móuments uen laif fils óuverguélming and keiátik",es:"Hay momentos en que la vida se siente abrumadora y caótica."},
+{en:"Your mind races and your heart feels heavy.",ph:"yor maind réisis and yor jart fils jévi",es:"Tu mente corre y tu corazón se siente pesado."},
+{en:"But peace is not found outside, it lives within you.",ph:"bat pis is not faund autsáid, it livs uizín yu",es:"Pero la paz no se encuentra afuera, vive dentro de ti."},
+{en:"Take a deep breath and slow down your thoughts.",ph:"teik a dip breth and slou daun yor zots",es:"Toma una respiración profunda y calma tus pensamientos."},
+{en:"Let go of what you cannot control.",ph:"let gou ov uat yu cánnot contról",es:"Suelta lo que no puedes controlar."},
+{en:"Trust that everything is happening for a reason.",ph:"trast dat évriting is jápening for a ríson",es:"Confía en que todo sucede por una razón."},
+{en:"Silence can be your greatest teacher.",ph:"sáilens can bi yor gréitest tícher",es:"El silencio puede ser tu mejor maestro."},
+{en:"In stillness, you find clarity and strength.",ph:"in stílnes, yu faind cláriri and stréngz",es:"En la quietud, encuentras claridad y fortaleza."},
+{en:"Do not fight the moment, accept it.",ph:"du not fait de móument, acsépt it",es:"No luches contra el momento, acéptalo."},
+{en:"Because true calm comes from within your soul.",ph:"bicós tru kam cams from uizín yor soul",es:"Porque la verdadera calma viene desde tu alma."}
+]
+},
+{
+title:"Small Steps, Big Success",
+img:"https://cdn.langeek.co/photo/46211/original/?type=jpeg",
+content:[
+{en:"Every morning, you sit at the same desk with new challenges ahead.",ph:"évri mórning, yu sit at de seim desk uiz niu chálensiz ajéd",es:"Cada mañana, te sientas en el mismo escritorio con nuevos desafíos por delante."},
+{en:"Deadlines, emails, and meetings fill your day.",ph:"dédlains, iméils, and mírins fil yor dei",es:"Fechas límite, correos y reuniones llenan tu día."},
+{en:"Sometimes it feels repetitive and exhausting.",ph:"sámtaims it fils ripétitiv and exóstin",es:"A veces se siente repetitivo y agotador."},
+{en:"But every task you complete builds your discipline.",ph:"bat évri task yu complít bilds yor dísciplin",es:"Pero cada tarea que completas construye tu disciplina."},
+{en:"You learn to manage time and solve problems.",ph:"yu lern tu mánaych taim and solv próblems",es:"Aprendes a gestionar el tiempo y resolver problemas."},
+{en:"Not every day is exciting, but every day matters.",ph:"not évri dei is exáitin, bat évri dei máters",es:"No todos los días son emocionantes, pero cada día importa."},
+{en:"Your effort shapes your future step by step.",ph:"yor éfort sheips yor fiúcher step bai step",es:"Tu esfuerzo moldea tu futuro paso a paso."},
+{en:"Even small progress is still progress.",ph:"íven smol prógres is stil prógres",es:"Incluso el pequeño progreso sigue siendo progreso."},
+{en:"Stay focused and keep improving your skills.",ph:"stei fóucost and kip imprúvin yor skils",es:"Mantente enfocado y sigue mejorando tus habilidades."},
+{en:"Because one day, all this work will open new doors.",ph:"bicós uan dei, ol dis uork uil óupen niu dors",es:"Porque un día, todo este trabajo abrirá nuevas puertas."}
+]
+},{
+title:"Me Before You",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnhREfOErh-iOjjhPBvC-YxE09ma4mbKov8w&s",
+content:[
+{
+en:"Have you ever met someone who changed your life forever?",
+ph:"jav yu éver met somuan ju cheinchd yor laif forevér",
+es:"¿Alguna vez conociste a alguien que cambió tu vida para siempre?"
+},
+{
+en:"She lived a simple life, full of routine and quiet dreams.",
+ph:"shi livd a símpl laif, ful ov rutin and kuaiet drims",
+es:"Ella vivía una vida simple, llena de rutina y sueños tranquilos."
+},
+{
+en:"He had everything… until he lost it all.",
+ph:"ji jad évriting… antíl ji lost it ol",
+es:"Él lo tenía todo… hasta que lo perdió todo."
+},
+{
+en:"Two completely different worlds… about to collide.",
+ph:"tu compítili díferent uorlds… abaut tu koláid",
+es:"Dos mundos completamente diferentes… a punto de chocar."
+},
+{
+en:"She brought color into his gray world.",
+ph:"shi brot kolor intu jis grei uorld",
+es:"Ella trajo color a su mundo gris."
+},
+{
+en:"And he showed her how to truly live.",
+ph:"and ji shoud jer jau tu trúli liv",
+es:"Y él le mostró cómo vivir de verdad."
+},
+{
+en:"It wasn't easy. It wasn't perfect.",
+ph:"it wózent ísi. it wózent pérfekt",
+es:"No fue fácil. No fue perfecto."
+},
+{
+en:"But it was real… and unforgettable.",
+ph:"bat it uoz ríal… and anfórgetabol",
+es:"Pero fue real… e inolvidable."
+},
+{
+en:"Because some people come into your life…",
+ph:"bikós som pípol cam intu yor laif…",
+es:"Porque algunas personas llegan a tu vida…"
+},
+{
+en:"just to change it forever.",
+ph:"yost tu cheinch it forevér",
+es:"solo para cambiarla para siempre."
+}
+]
+},{
+title:"The Titanic",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwdVJ7AKQGirhWHH5Z9OzBjtczQ9RKLdYD2g&s",
+content:[
+{
+en:"Do you trust me?",
+ph:"du yu trost mi",
+es:"¿Confías en mí?"
+},
+{
+en:"I trust you.",
+ph:"ai trost yu",
+es:"Confío en ti."
+},
+{
+en:"Close your eyes… and don’t let go.",
+ph:"klous yor ais… and dont let gou",
+es:"Cierra los ojos… y no me sueltes."
+},
+{
+en:"With you, I feel free… like I can fly.",
+ph:"uiz yu, ai fil fri… laik ai kan flai",
+es:"Contigo, me siento libre… como si pudiera volar."
+},
+{
+en:"You already can… you just didn’t know it.",
+ph:"yu olrédi kan… yu yost dídent nou it",
+es:"Ya puedes… solo que no lo sabías."
+},
+{
+en:"I came here feeling trapped…",
+ph:"ai keim jir fíling trapd…",
+es:"Vine aquí sintiéndome atrapada…"
+},
+{
+en:"and you gave me a reason to live again.",
+ph:"and yu gueiv mi a ríson tu liv aguein",
+es:"y tú me diste una razón para vivir otra vez."
+},
+{
+en:"No matter what happens… I’ll never let go of you.",
+ph:"nou máter uot jápens… ail néver let gou ov yu",
+es:"No importa lo que pase… nunca te soltaré."
+},
+{
+en:"Promise me you’ll survive… and never give up.",
+ph:"prómis mi yul surváiv… and néver guiv ap",
+es:"Prométeme que sobrevivirás… y nunca te rendirás."
+},
+{
+en:"I promise… I’ll never forget you.",
+ph:"ai prómis… ail néver forgét yu",
+es:"Lo prometo… nunca te olvidaré."
+},
+{
+en:"You will always be with me… in my heart.",
+ph:"yu wil ólweis bi uiz mi… in mai jart",
+es:"Siempre estarás conmigo… en mi corazón."
+}
+]
+},{
+title:"my fault",
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtOhBEqwCR_DNnRZe0QVCTQ3-qclTk37j69Q&s",
+content:[
+{
+en:"I tried to hate you… I really did.",
+ph:"ai traid tu jeit iu… ai ríali did",
+es:"Intenté odiarte… de verdad lo hice."
+},
+{
+en:"But every time you looked at me… I forgot why.",
+ph:"bat évri taim yu lukt at mi… ai forgót uai",
+es:"Pero cada vez que me mirabas… olvidaba por qué."
+},
+{
+en:"You were everything I wasn’t supposed to want.",
+ph:"yu uer évriting ai wózent supóusd tu uant",
+es:"Eras todo lo que no debía querer."
+},
+{
+en:"Dangerous, complicated… irresistible.",
+ph:"déincheros, komplikeited… irresistíbol",
+es:"Peligroso, complicado… irresistible."
+},
+{
+en:"And yet… you made me feel safe.",
+ph:"and yet… yu meid mi fil seif",
+es:"Y aun así… me hacías sentir segura."
+},
+{
+en:"With you, nothing made sense… but everything felt right.",
+ph:"uiz iu, nóthing meid sens… bat évriting felt rait",
+es:"Contigo, nada tenía sentido… pero todo se sentía bien."
+},
+{
+en:"We fought, we broke… but we always came back.",
+ph:"ui fot, ui brouk… bat ui ólweis keim bak",
+es:"Discutimos, nos rompimos… pero siempre volvimos."
+},
+{
+en:"Because loving you was never a choice.",
+ph:"bikós lóving iu uoz néver a chois",
+es:"Porque amarte nunca fue una elección."
+},
+{
+en:"It was a risk… I was willing to take.",
+ph:"it uoz a risk… ai uoz uíling tu teik",
+es:"Era un riesgo… que estaba dispuesta a tomar."
+},
+{
+en:"Even if it meant losing everything…",
+ph:"íven if it ment lúzing évriting…",
+es:"Incluso si eso significaba perderlo todo…"
+},
+{
+en:"I would still choose you.",
+ph:"ai ud stil chúz iu",
+es:"Aun así… te elegiría a ti."
+}
+]
+},{
+title:"She was pretty",
+img:"https://m.media-amazon.com/images/S/pv-target-images/860b956d0dca4f2e24860d62364353dd271732f0e86bb74cfdb01b9641942c59.jpg",
+content:[
+{
+en:"This can’t be happening… why today of all days?",
+ph:"dis kant bi jápening… uai tudéi ov ol deis",
+es:"Esto no puede estar pasando… ¿por qué justo hoy?"
+},
+{
+en:"My hair is a disaster… and my life too.",
+ph:"mai jer is a disáster… and mai laif tu",
+es:"Mi cabello es un desastre… y mi vida también."
+},
+{
+en:"Wait… is that him? My childhood crush?",
+ph:"ueit… is dat jim? mai cháildjud krosh",
+es:"Espera… ¿ese es él? ¿Mi amor de la infancia?"
+},
+{
+en:"No, no, no… I’m not ready for this!",
+ph:"nou, nou, nou… aim not rédi for dis",
+es:"No, no, no… ¡no estoy lista para esto!"
+},
+{
+en:"Why does he look perfect… and I look like this?",
+ph:"uai dos ji luk pérfekt… and ai luk laik dis",
+es:"¿Por qué él se ve perfecto… y yo así?"
+},
+{
+en:"Okay, think… pretend to be confident.",
+ph:"okéi, think… priténd tu bi kónfident",
+es:"Ok, piensa… finge tener confianza."
+},
+{
+en:"Hello! Long time no see… oh no, that sounded weird.",
+ph:"jelóu! long taim no si… ou nou, dat sáunded uird",
+es:"¡Hola! Cuánto tiempo… oh no, eso sonó raro."
+},
+{
+en:"Why am I like this? Just act normal!",
+ph:"uai am ai laik dis? yost akt nórmal",
+es:"¿Por qué soy así? ¡Solo actúa normal!"
+},
+{
+en:"He’s smiling… wait, is he laughing at me?",
+ph:"jis smáilin… ueit, is ji láfin at mi",
+es:"Está sonriendo… espera, ¿se está riendo de mí?"
+},
+{
+en:"Okay… maybe this is a total disaster.",
+ph:"okéi… méibi dis is a tórol disáster",
+es:"Ok… tal vez esto es un desastre total."
+},
+{
+en:"But somehow… I think this is just the beginning.",
+ph:"bat sámjau… ai think dis is yost de bigíning",
+es:"Pero de alguna forma… creo que esto es solo el comienzo."
+}
+]
+},{
+title:"Teresa",
+img:"https://images.vix.com/prd/videos/video:mcp:3036497/76b85fc99fc14d509c79084185d206cf",
+content:[
+{
+en:"To be… or not to be… that has always been my question.",
+ph:"tu bi… or not tu bi… dat jas ólweis bin mai kuéstion",
+es:"Ser… o no ser… esa siempre ha sido mi pregunta."
+},
+{
+en:"I was born with nothing… but I refuse to die the same way.",
+ph:"ai uoz born uiz nóthing… bat ai rifiús tu dai de seim uei",
+es:"Nací sin nada… pero me niego a morir igual."
+},
+{
+en:"They judge me, they point at me… but they don’t understand.",
+ph:"dei yach mi, dei point at mi… bat dei dont anderstánd",
+es:"Me juzgan, me señalan… pero no entienden."
+},
+{
+en:"In this world, love is a luxury… and power is everything.",
+ph:"in dis uorld, lov is a lákshuri… and páuer is évriting",
+es:"En este mundo, el amor es un lujo… y el poder lo es todo."
+},
+{
+en:"Should I follow my heart… or my ambition?",
+ph:"shud ai fólo mai jart… or mai ambíshon",
+es:"¿Debo seguir mi corazón… o mi ambición?"
+},
+{
+en:"Because every choice has a price… and I’m willing to pay it.",
+ph:"bikós évri chois jas a prais… and aim uíling tu pei it",
+es:"Porque cada decisión tiene un precio… y estoy dispuesta a pagarlo."
+},
+{
+en:"I won’t be poor, I won’t be invisible… never again.",
+ph:"ai wont bi pur, ai wont bi invisíbol… néver aguein",
+es:"No seré pobre, no seré invisible… nunca más."
+},
+{
+en:"Even if I have to lose myself along the way.",
+ph:"íven if ai jav tu luz maiself along de uei",
+es:"Incluso si tengo que perderme en el camino."
+},
+{
+en:"Because in the end…",
+ph:"bikós in di end…",
+es:"Porque al final…"
+},
+{
+en:"I will become everything they said I couldn’t be.",
+ph:"ai wil bikóm évriting dei sed ai cúdent bi",
+es:"Me convertiré en todo lo que dijeron que no podía ser."
+}
+]
+},{
+title:"Boys over flowers",
+img:"https://m.media-amazon.com/images/S/pv-target-images/636aa20af0ae59e780470ed870548aae32594ba9a1b930e69879cf6178ac8d84.jpg",
+content:[
+{
+en:"Why do you always follow me?",
+ph:"uai du yu ólweis fólou mi",
+es:"¿Por qué siempre me sigues?"
+},
+{
+en:"Because I can’t stay away from you.",
+ph:"bikós ai kant stei auéi from iu",
+es:"Porque no puedo alejarme de ti."
+},
+{
+en:"You’re annoying, arrogant… and impossible.",
+ph:"yur anóing, árrogant… and imposíbol",
+es:"Eres molesto, arrogante… e imposible."
+},
+{
+en:"But you’re the only one who dares to stand against me.",
+ph:"bat yur di ónli uan ju ders tu stand aguéinst mi",
+es:"Pero eres la única que se atreve a enfrentarse a mí."
+},
+{
+en:"I don’t like your world… I don’t belong there.",
+ph:"ai dont laik yor uorld… ai dont bilong der",
+es:"No me gusta tu mundo… no pertenezco ahí."
+},
+{
+en:"Then I’ll leave that world… if it means being with you.",
+ph:"den ail liv dat uorld… if it mins bíing uiz iu",
+es:"Entonces dejaré ese mundo… si significa estar contigo."
+},
+{
+en:"You say that now… but you don’t understand how hard it is.",
+ph:"yu sei dat nau… bat yu dont anderstánd jau jard it is",
+es:"Dices eso ahora… pero no entiendes lo difícil que es."
+},
+{
+en:"I don’t care about anything else… only you.",
+ph:"ai dont ker abáut énything els… ónli iu",
+es:"No me importa nada más… solo tú."
+},
+{
+en:"Why are you doing this?",
+ph:"uai ar yu dúing dis",
+es:"¿Por qué haces esto?"
+},
+{
+en:"Because I love you… Geum Jan-di.",
+ph:"bikós ai lov iu… gum yan-di",
+es:"Porque te amo… Geum Jan-di."
+},
+{
+en:"…Then don’t let go of my hand.",
+ph:"den dont let gou ov mai jand",
+es:"…Entonces no sueltes mi mano."
+}
+]
+}
+];
+
+/* ================= CREATE BOOKS ================= */
+
+const booksContainer =
+document.getElementById("books");
+
+booksData.forEach((book,index)=>{
+
+booksContainer.innerHTML += `
+
+<div class="book"
+onclick="openBook(${index})">
+
+<img src="${book.img}"
+loading="lazy">
+
+<div class="book-title">
+${book.title}
+</div>
+
+</div>
+
+`;
+
+});
+
+/* ================= OPEN BOOK ================= */
+
+function openBook(index){
+
+document.getElementById("books")
+.style.display="none";
+
+document.getElementById("reader")
+.style.display="flex";
+
+const content =
+document.getElementById("content");
+
+content.innerHTML="";
+
+document.getElementById("bookTitle")
+.innerText=booksData[index].title;
+
+document.getElementById("bookImage")
+.src=booksData[index].img;
+
+booksData[index].content.forEach((p,i)=>{
+
+content.innerHTML += `
+
+<p>
+
+${wrapWords(p.en,i)}
+
+</p>
+
+<div class="phonetic">
+${p.ph}
+</div>
+
+<div class="translation"
+id="t${i}">
+${p.es}
+</div>
+
+<div class="actions">
+
+<button class="translate-btn"
+onclick="toggleTranslation(${i})">
+
+Translation
+
+</button>
+
+<button class="speak-btn"
+onclick="speakParagraph('${p.en}')">
+
+<i class="fa-solid fa-volume-high"></i>
+
+</button>
+
+<button class="mic-btn"
+onclick="startListening(${i})">
+
+<i class="fa-solid fa-microphone"></i>
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* ================= BACK BOOKS ================= */
+
+function goBackBooks(){
+
+document.getElementById("books")
+.style.display="grid";
+
+document.getElementById("reader")
+.style.display="none";
+
+}
+
+/* ================= TRANSLATION ================= */
+
+function toggleTranslation(index){
+
+const el =
+document.getElementById("t"+index);
+
+el.style.display =
+el.style.display==="block"
+? "none"
+: "block";
+
+}
+
+/* ================= CLICKABLE WORDS ================= */
+
+function wrapWords(text,index){
+
+return text.split(" ")
+.map(word=>{
+
+const clean =
+word.replace(/[^a-zA-Z]/g,'')
+.toLowerCase();
+
+return `
+
+<span class="word"
+data-index="${index}"
+data-word="${clean}"
+onclick="speak('${clean}')">
+
+${word}
+
+</span>
+
+`;
+
+}).join(" ");
+
+}
+
+/* ================= VOICE RECOGNITION ================= */
+
+let recognition;
+let listening=false;
+
+function startListening(index){
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+
+alert(
+"Speech recognition not supported"
+);
+
+return;
+
+}
+
+if(!recognition){
+
+recognition =
+new SpeechRecognition();
+
+recognition.lang="en-US";
+
+recognition.interimResults=true;
+
+recognition.continuous=true;
+
+recognition.maxAlternatives=1;
+
+}
+
+if(listening){
+
+recognition.stop();
+
+listening=false;
+
+return;
+
+}
+
+const spans =
+document.querySelectorAll(
+`span[data-index="${index}"]`
+);
+
+recognition.start();
+
+listening=true;
+
+recognition.onresult=function(event){
+
+const transcript =
+Array.from(event.results)
+.map(r=>r[0].transcript)
+.join("")
+.toLowerCase()
+.replace(/[^\w\s]/g,"");
+
+const spokenWords =
+transcript.split(/\s+/);
+
+spans.forEach(span=>{
+
+span.classList.remove(
+"active-word",
+"correct",
+"incorrect"
+);
+
+});
+
+spokenWords.forEach((word,i)=>{
+
+if(!spans[i]) return;
+
+const expected =
+spans[i].dataset.word;
+
+spans[i]
+.classList.add("active-word");
+
+if(
+
+word===expected ||
+
+word.includes(expected) ||
+
+expected.includes(word)
+
+){
+
+spans[i]
+.classList.add("correct");
+
+}else{
+
+spans[i]
+.classList.add("incorrect");
+
+}
+
+});
+
+};
+
+recognition.onerror=function(event){
+
+console.log(event.error);
+
+listening=false;
+
+};
+
+recognition.onend=function(){
+
+listening=false;
+
+};
+
+}
+
+</script>
+
+</body>
+</html>
