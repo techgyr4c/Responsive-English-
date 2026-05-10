@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -636,7 +637,158 @@ padding-left:22px;
 }
 
 }
+.level-c1 .level-dot{
+border-color:#ff416c;
+}
 
+/* ================= THEORY MODAL ================= */
+
+.theory-modal{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100dvh;
+
+background:rgba(0,0,0,.65);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+padding:20px;
+
+z-index:9999;
+}
+
+.theory-box{
+width:100%;
+max-width:850px;
+
+background:white;
+color:#222;
+
+border-radius:28px;
+
+padding:35px;
+
+position:relative;
+
+max-height:90dvh;
+
+overflow-y:auto;
+
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+animation:theoryShow .3s ease;
+}
+
+@keyframes theoryShow{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.close-btn{
+position:absolute;
+top:15px;
+right:15px;
+
+width:45px;
+height:45px;
+
+border:none;
+border-radius:50%;
+
+background:#ff4b5c;
+color:white;
+
+font-size:18px;
+font-weight:700;
+
+cursor:pointer;
+}
+
+.close-btn:hover{
+transform:scale(1.08);
+}
+
+.theory-box h2{
+font-size:2rem;
+margin-bottom:25px;
+color:#1e3c72;
+}
+
+.theory-box h3{
+margin-top:25px;
+margin-bottom:12px;
+font-size:1.3rem;
+color:#00a8ff;
+}
+
+.theory-box p,
+.theory-box li{
+font-size:1.05rem;
+line-height:1.8;
+}
+
+.theory-box ul{
+padding-left:22px;
+}
+
+.lesson-card{
+cursor:pointer;
+}
+
+/* SCROLL INTERNO */
+
+.theory-box::-webkit-scrollbar{
+width:8px;
+}
+
+.theory-box::-webkit-scrollbar-thumb{
+background:#00bfff;
+border-radius:20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+.theory-box{
+padding:22px;
+border-radius:22px;
+max-height:88dvh;
+}
+
+.theory-box h2{
+font-size:1.5rem;
+}
+
+.theory-box h3{
+font-size:1.1rem;
+}
+
+.theory-box p,
+.theory-box li{
+font-size:.96rem;
+line-height:1.7;
+}
+
+.close-btn{
+width:40px;
+height:40px;
+font-size:16px;
+}
+
+}
 /* ================= MOBILE ================= */
 
 @media(max-width:700px){
@@ -1120,8 +1272,7 @@ English Theory Roadmap
 </h2>
 
 <div class="theory-grid">
-
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('introduction')">
 <div class="lesson-icon">🔤</div>
 <div class="lesson-name">Introduction</div>
 <div class="lesson-desc">
@@ -1132,7 +1283,7 @@ Alphabet, greetings and basic English structure.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('pronouns')">
 <div class="lesson-icon">👤</div>
 <div class="lesson-name">Pronouns</div>
 <div class="lesson-desc">
@@ -1143,7 +1294,7 @@ Personal and possessive pronouns with examples.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('verbtobe')">
 <div class="lesson-icon">🧩</div>
 <div class="lesson-name">Verb To Be</div>
 <div class="lesson-desc">
@@ -1154,7 +1305,7 @@ Learn am, is and are in positive, negative and questions.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card"onclick="showLesson('articles')">
 <div class="lesson-icon">📘</div>
 <div class="lesson-name">Articles</div>
 <div class="lesson-desc">
@@ -1165,7 +1316,7 @@ Use of a, an and the with examples.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('nouns')">
 <div class="lesson-icon">🏠</div>
 <div class="lesson-name">Nouns</div>
 <div class="lesson-desc">
@@ -1176,7 +1327,7 @@ Singular, plural and irregular nouns.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card"onclick="showLesson('adjectives')">
 <div class="lesson-icon">✨</div>
 <div class="lesson-name">Adjectives</div>
 <div class="lesson-desc">
@@ -1203,7 +1354,7 @@ Common adjectives and sentence order.
 
 <div class="theory-grid">
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('presentsimple')">
 <div class="lesson-icon">📅</div>
 <div class="lesson-name">Present Simple</div>
 <div class="lesson-desc">
@@ -1214,7 +1365,7 @@ Habits, routines and daily activities.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('presentcontinuous')">
 <div class="lesson-icon">⏳</div>
 <div class="lesson-name">Present Continuous</div>
 <div class="lesson-desc">
@@ -1225,7 +1376,7 @@ Actions happening right now.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('pastsimple')">
 <div class="lesson-icon">🕰️</div>
 <div class="lesson-name">Past Simple</div>
 <div class="lesson-desc">
@@ -1236,7 +1387,7 @@ Regular and irregular verbs in past.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('pastcontinuous')">
 <div class="lesson-icon">📖</div>
 <div class="lesson-name">Past Continuous</div>
 <div class="lesson-desc">
@@ -1247,7 +1398,7 @@ Interrupted actions in the past.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('future')">
 <div class="lesson-icon">🚀</div>
 <div class="lesson-name">Future</div>
 <div class="lesson-desc">
@@ -1274,7 +1425,7 @@ Will and going to for future plans.
 
 <div class="theory-grid">
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('presentperfect')">
 <div class="lesson-icon">✅</div>
 <div class="lesson-name">Present Perfect</div>
 <div class="lesson-desc">
@@ -1285,7 +1436,7 @@ Experiences and actions connected to present.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('modals')">>
 <div class="lesson-icon">⚡</div>
 <div class="lesson-name">Modal Verbs</div>
 <div class="lesson-desc">
@@ -1296,7 +1447,7 @@ Can, should, must and more.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('comparatives')">
 <div class="lesson-icon">📏</div>
 <div class="lesson-name">Comparatives</div>
 <div class="lesson-desc">
@@ -1307,7 +1458,7 @@ Comparatives and superlatives.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('conditionals')">
 <div class="lesson-icon">🔀</div>
 <div class="lesson-name">Conditionals</div>
 <div class="lesson-desc">
@@ -1334,7 +1485,7 @@ Zero, first, second and third conditional.
 
 <div class="theory-grid">
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('reported')">
 <div class="lesson-icon">🎤</div>
 <div class="lesson-name">Reported Speech</div>
 <div class="lesson-desc">
@@ -1345,7 +1496,7 @@ Transform direct speech into indirect speech.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('phrasal')">
 <div class="lesson-icon">🔧</div>
 <div class="lesson-name">Phrasal Verbs</div>
 <div class="lesson-desc">
@@ -1356,7 +1507,7 @@ Most common phrasal verbs.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('connectors')">
 <div class="lesson-icon">🔗</div>
 <div class="lesson-name">Connectors</div>
 <div class="lesson-desc">
@@ -1383,7 +1534,7 @@ Improve fluency using connectors.
 
 <div class="theory-grid">
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('advancedgrammar')">
 <div class="lesson-icon">🧠</div>
 <div class="lesson-name">Advanced Grammar</div>
 <div class="lesson-desc">
@@ -1394,7 +1545,7 @@ Inversion, cleft sentences and advanced structures.
 </div>
 </div>
 
-<div class="lesson-card">
+<div class="lesson-card" onclick="showLesson('fluency')">
 <div class="lesson-icon">🗣️</div>
 <div class="lesson-name">Fluency Tips</div>
 <div class="lesson-desc">
@@ -1414,6 +1565,23 @@ Daily habits to reach advanced fluency.
 </div>
 
 </section>
+  
+  
+  <!-- THEORY MODAL -->
+  <div class="theory-modal" id="theoryModal">
+
+<div class="theory-box">
+
+<button class="close-btn"
+onclick="closeTheory()">
+✖
+</button>
+
+<div id="lessonContent"></div>
+
+</div>
+
+</div>
 
 <!-- ================= AUDIO ================= -->
 
@@ -2553,6 +2721,923 @@ listening=false;
 }
 
 </script>
+  
+<script>
 
+function showLesson(topic){
+
+const modal =
+document.getElementById("theoryModal");
+
+const content =
+document.getElementById("lessonContent");
+
+let html = "";
+
+/* INTRODUCTION */
+
+if(topic === "introduction"){
+
+html = `
+
+<h2>🔤 Introduction to English</h2>
+
+<h3>Alphabet</h3>
+
+<p>
+A - Ei<br>
+B - Bi<br>
+C - Si<br>
+D - Di<br>
+E - I<br>
+F - Ef<br>
+G - Yi<br>
+H - Eich<br>
+I - Ai<br>
+J - Jei<br>
+K - Kei<br>
+L - El<br>
+M - Em<br>
+N - En<br>
+O - Ou<br>
+P - Pi<br>
+Q - Kiu<br>
+R - Ar<br>
+S - Es<br>
+T - Ti<br>
+U - Iu<br>
+V - Vi<br>
+W - Double iu<br>
+X - Eks<br>
+Y - Uai<br>
+Z - Zi
+</p>
+
+<h3>Greetings</h3>
+
+<ul>
+<li>Hello / Hi = Hola</li>
+<li>Good morning = Buenos días</li>
+<li>Good afternoon = Buenas tardes</li>
+<li>Good evening = Buenas noches</li>
+<li>Goodbye / Bye = Adiós</li>
+<li>How are you? = ¿Cómo estás?</li>
+<li>I am fine = Estoy bien</li>
+<li>Nice to meet you = Mucho gusto</li>
+</ul>
+
+<h3>Example</h3>
+
+<p>
+Hello, how are you?<br>
+Hola, ¿cómo estás?
+</p>
+
+<p>
+I am fine, thank you.<br>
+Estoy bien, gracias.
+</p>
+
+<h3>Basic Structure</h3>
+
+<p>
+Subject + Verb + Complement
+</p>
+
+`;
+
+}
+
+/* PRONOUNS */
+
+if(topic === "pronouns"){
+
+html = `
+
+<h2>👤 Pronouns</h2>
+
+<h3>Personal Pronouns</h3>
+
+<ul>
+<li>I = Yo</li>
+<li>You = Tú</li>
+<li>He = Él</li>
+<li>She = Ella</li>
+<li>It = Eso</li>
+<li>We = Nosotros</li>
+<li>They = Ellos</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p>
+I am a student.<br>
+Yo soy estudiante.
+</p>
+
+<p>
+They are happy.<br>
+Ellos están felices.
+</p>
+
+<h3>Possessive Pronouns</h3>
+
+<ul>
+<li>My = Mi</li>
+<li>Your = Tu</li>
+<li>His / Her = Su</li>
+<li>Our = Nuestro</li>
+<li>Their = Su de ellos</li>
+</ul>
+
+<p>
+My phone is new.<br>
+Mi teléfono es nuevo.
+</p>
+
+`;
+
+}
+
+/* VERB TO BE */
+
+if(topic === "verbtobe"){
+
+html = `
+
+<h2>🧩 Verb To Be</h2>
+
+<h3>Present</h3>
+
+<p>
+I → am<br>
+You → are<br>
+He / She / It → is<br>
+We → are<br>
+They → are
+</p>
+
+<h3>Structure</h3>
+
+<p>
+Subject + verb + complement
+</p>
+
+<h3>Examples</h3>
+
+<p>
+I am tired.<br>
+Estoy cansado.
+</p>
+
+<p>
+She is my friend.<br>
+Ella es mi amiga.
+</p>
+
+<h3>Negative</h3>
+
+<p>
+Subject + verb + not
+</p>
+
+<p>
+I am not busy.<br>
+No estoy ocupado.
+</p>
+
+<h3>Questions</h3>
+
+<p>
+Verb + subject + complement?
+</p>
+
+<p>
+Are you ready?<br>
+¿Estás listo?
+</p>
+
+`;
+
+}
+
+
+/* ARTICLES */
+
+if(topic === "articles"){
+
+html = `
+
+<h2>📘 Articles</h2>
+
+<h3>Articles in English</h3>
+
+<p>
+A / An = Un / Una<br>
+The = El / La
+</p>
+
+<h3>Use of A and An</h3>
+
+<p>
+A → consonant sounds<br>
+An → vowel sounds
+</p>
+
+<h3>Examples</h3>
+
+<p>
+A car = Un carro<br>
+An apple = Una manzana
+</p>
+
+<p>
+The teacher = El profesor<br>
+The sun = El sol
+</p>
+
+`;
+
+}
+
+
+/* NOUNS */
+
+if(topic === "nouns"){
+
+html = `
+
+<h2>🏠 Nouns</h2>
+
+<h3>Singular and Plural</h3>
+
+<p>
+Usually add "s".
+</p>
+
+<p>
+Book → Books<br>
+Dog → Dogs
+</p>
+
+<h3>Irregular Plurals</h3>
+
+<p>
+Man → Men<br>
+Woman → Women<br>
+Child → Children
+</p>
+
+<h3>Example</h3>
+
+<p>
+The children are playing.<br>
+Los niños están jugando.
+</p>
+
+`;
+
+}
+
+/* ADJECTIVES */
+
+if(topic === "adjectives"){
+
+html = `
+
+<h2>✨ Adjectives</h2>
+
+<p>
+In English, adjectives go before the noun.
+</p>
+
+<h3>Examples</h3>
+
+<p>
+A beautiful house.<br>
+Una casa hermosa.
+</p>
+
+<p>
+A big dog.<br>
+Un perro grande.
+</p>
+
+<h3>Common Adjectives</h3>
+
+<ul>
+<li>Big = Grande</li>
+<li>Small = Pequeño</li>
+<li>Beautiful = Hermoso</li>
+<li>Fast = Rápido</li>
+<li>Slow = Lento</li>
+<li>Happy = Feliz</li>
+<li>Sad = Triste</li>
+</ul>
+
+`;
+
+}
+  if(topic === "presentsimple"){
+
+html = `
+
+<h2>📅 Present Simple</h2>
+
+<h3>Use</h3>
+
+<ul>
+<li>Routines</li>
+<li>Habits</li>
+<li>Facts</li>
+</ul>
+
+<h3>Structure</h3>
+
+<p>
+Subject + base verb
+</p>
+
+<h3>Third Person</h3>
+
+<p>
+With he/she/it add s or es.
+</p>
+
+<h3>Examples</h3>
+
+<p>
+I play soccer.<br>
+Yo juego fútbol.
+</p>
+
+<p>
+She works every day.<br>
+Ella trabaja todos los días.
+</p>
+
+<h3>Negative</h3>
+
+<p>
+I do not like coffee.<br>
+No me gusta el café.
+</p>
+
+<p>
+He does not study.<br>
+Él no estudia.
+</p>
+
+<h3>Questions</h3>
+
+<p>
+Do you speak English?<br>
+¿Hablas inglés?
+</p>
+
+`;
+
+}
+  /* PRESENT CONTINUOUS */
+
+if(topic === "presentcontinuous"){
+
+html = `
+
+<h2>⏳ Present Continuous</h2>
+
+<h3>Use</h3>
+
+<p>
+Actions happening right now.
+</p>
+
+<h3>Structure</h3>
+
+<p>
+Subject + to be + verb-ing
+</p>
+
+<h3>Examples</h3>
+
+<p>
+I am studying.<br>
+Estoy estudiando.
+</p>
+
+<p>
+They are eating.<br>
+Ellos están comiendo.
+</p>
+
+<h3>Negative</h3>
+
+<p>
+She is not sleeping.<br>
+Ella no está durmiendo.
+</p>
+
+<h3>Questions</h3>
+
+<p>
+Are you working?<br>
+¿Estás trabajando?
+</p>
+
+`;
+
+}
+
+/* PAST SIMPLE */
+
+if(topic === "pastsimple"){
+
+html = `
+
+<h2>🕰️ Past Simple</h2>
+
+<h3>Regular Verbs</h3>
+
+<p>
+Work → Worked<br>
+Play → Played
+</p>
+
+<h3>Irregular Verbs</h3>
+
+<p>
+Go → Went<br>
+Eat → Ate<br>
+See → Saw<br>
+Have → Had
+</p>
+
+<h3>Examples</h3>
+
+<p>
+I visited my grandmother.<br>
+Visité a mi abuela.
+</p>
+
+<p>
+She went to school.<br>
+Ella fue a la escuela.
+</p>
+
+<h3>Negative</h3>
+
+<p>
+I did not understand.<br>
+No entendí.
+</p>
+
+`;
+
+}
+
+/* PAST CONTINUOUS */
+
+if(topic === "pastcontinuous"){
+
+html = `
+
+<h2>📖 Past Continuous</h2>
+
+<h3>Structure</h3>
+
+<p>
+Subject + was/were + verb-ing
+</p>
+
+<h3>Examples</h3>
+
+<p>
+I was sleeping.<br>
+Estaba durmiendo.
+</p>
+
+<p>
+They were watching TV.<br>
+Ellos estaban viendo televisión.
+</p>
+
+<h3>Common Use</h3>
+
+<p>
+Interrupted actions.
+</p>
+
+<p>
+I was studying when you called.<br>
+Estaba estudiando cuando llamaste.
+</p>
+
+`;
+
+}
+
+/* FUTURE */
+
+if(topic === "future"){
+
+html = `
+
+<h2>🚀 Future</h2>
+
+<h3>Will</h3>
+
+<p>
+Used for spontaneous decisions.
+</p>
+
+<p>
+Structure:<br>
+Subject + will + verb
+</p>
+
+<p>
+I will help you.<br>
+Te ayudaré.
+</p>
+
+<h3>Going To</h3>
+
+<p>
+Used for future plans.
+</p>
+
+<p>
+Structure:<br>
+Subject + to be + going to + verb
+</p>
+
+<p>
+We are going to travel.<br>
+Vamos a viajar.
+</p>
+
+`;
+
+}
+
+/* PRESENT PERFECT */
+
+if(topic === "presentperfect"){
+
+html = `
+
+<h2>✅ Present Perfect</h2>
+
+<h3>Structure</h3>
+
+<p>
+Subject + have/has + participle
+</p>
+
+<h3>Use</h3>
+
+<ul>
+<li>Experiences</li>
+<li>Actions connected to the present</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p>
+I have visited Colombia.<br>
+He visitado Colombia.
+</p>
+
+<p>
+She has finished her homework.<br>
+Ella ha terminado su tarea.
+</p>
+
+<h3>Common Participles</h3>
+
+<p>
+Go → Gone<br>
+Eat → Eaten<br>
+Write → Written<br>
+See → Seen
+</p>
+
+`;
+
+}
+
+/* MODAL VERBS */
+
+if(topic === "modals"){
+
+html = `
+
+<h2>⚡ Modal Verbs</h2>
+
+<h3>Common Modal Verbs</h3>
+
+<ul>
+<li>Can = ability</li>
+<li>Could = possibility / past</li>
+<li>Should = advice</li>
+<li>Must = obligation</li>
+<li>May = possibility</li>
+<li>Might = low possibility</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p>
+I can swim.<br>
+Puedo nadar.
+</p>
+
+<p>
+You should study more.<br>
+Deberías estudiar más.
+</p>
+
+<p>
+You must wear a helmet.<br>
+Debes usar casco.
+</p>
+
+`;
+
+}
+
+/* COMPARATIVES */
+
+if(topic === "comparatives"){
+
+html = `
+
+<h2>📏 Comparatives & Superlatives</h2>
+
+<h3>Comparatives</h3>
+
+<p>
+Tall → Taller<br>
+Fast → Faster
+</p>
+
+<p>
+My car is faster than yours.<br>
+Mi carro es más rápido que el tuyo.
+</p>
+
+<h3>Superlatives</h3>
+
+<p>
+Tall → The tallest<br>
+Fast → The fastest
+</p>
+
+<p>
+She is the smartest student.<br>
+Ella es la estudiante más inteligente.
+</p>
+
+`;
+
+}
+
+/* CONDITIONALS */
+
+if(topic === "conditionals"){
+
+html = `
+
+<h2>🔀 Conditionals</h2>
+
+<h3>Zero Conditional</h3>
+
+<p>
+If you heat water, it boils.<br>
+Si calientas agua, hierve.
+</p>
+
+<h3>First Conditional</h3>
+
+<p>
+If it rains, I will stay home.<br>
+Si llueve, me quedaré en casa.
+</p>
+
+<h3>Second Conditional</h3>
+
+<p>
+If I were rich, I would travel.<br>
+Si fuera rico, viajaría.
+</p>
+
+<h3>Third Conditional</h3>
+
+<p>
+If I had studied, I would have passed.<br>
+Si hubiera estudiado, habría aprobado.
+</p>
+
+`;
+
+}
+
+/* REPORTED SPEECH */
+
+if(topic === "reported"){
+
+html = `
+
+<h2>🎤 Reported Speech</h2>
+
+<h3>Direct Speech</h3>
+
+<p>
+She said: "I am tired."
+</p>
+
+<h3>Reported Speech</h3>
+
+<p>
+She said that she was tired.<br>
+Ella dijo que estaba cansada.
+</p>
+
+<h3>Common Changes</h3>
+
+<p>
+am/is → was<br>
+are → were<br>
+will → would<br>
+have → had
+</p>
+
+`;
+
+}
+
+/* PHRASAL VERBS */
+
+if(topic === "phrasal"){
+
+html = `
+
+<h2>🔧 Phrasal Verbs</h2>
+
+<h3>Common Phrasal Verbs</h3>
+
+<p>
+Wake up = despertar<br>
+Turn on = encender<br>
+Turn off = apagar<br>
+Look for = buscar<br>
+Give up = rendirse<br>
+Find out = descubrir
+</p>
+
+<h3>Examples</h3>
+
+<p>
+I wake up at 6 AM.<br>
+Me despierto a las 6.
+</p>
+
+<p>
+Don't give up.<br>
+No te rindas.
+</p>
+
+`;
+
+}
+
+/* CONNECTORS */
+
+if(topic === "connectors"){
+
+html = `
+
+<h2>🔗 Connectors</h2>
+
+<h3>Common Connectors</h3>
+
+<p>
+And = y<br>
+But = pero<br>
+Because = porque<br>
+Although = aunque<br>
+However = sin embargo<br>
+Therefore = por lo tanto<br>
+Besides = además
+</p>
+
+<h3>Example</h3>
+
+<p>
+I studied hard; however, the exam was difficult.<br>
+Estudié duro; sin embargo, el examen fue difícil.
+</p>
+
+`;
+
+}
+
+/* ADVANCED GRAMMAR */
+
+if(topic === "advancedgrammar"){
+
+html = `
+
+<h2>🧠 Advanced Grammar</h2>
+
+<h3>Inversion</h3>
+
+<p>
+Never have I seen such beauty.<br>
+Nunca había visto tanta belleza.
+</p>
+
+<h3>Cleft Sentences</h3>
+
+<p>
+What I need is a vacation.<br>
+Lo que necesito son vacaciones.
+</p>
+
+<h3>Mixed Conditionals</h3>
+
+<p>
+If I had studied medicine, I would be a doctor now.<br>
+Si hubiera estudiado medicina, ahora sería doctor.
+</p>
+
+<h3>Advanced Expressions</h3>
+
+<p>
+On the other hand<br>
+In spite of<br>
+As far as I know<br>
+Needless to say
+</p>
+
+`;
+
+}
+
+/* FLUENCY TIPS */
+
+if(topic === "fluency"){
+
+html = `
+
+<h2>🗣️ Fluency Tips</h2>
+
+<h3>How to Reach C1</h3>
+
+<ul>
+<li>Speak English every day</li>
+<li>Think in English</li>
+<li>Read books and news</li>
+<li>Learn vocabulary in context</li>
+<li>Write daily in English</li>
+<li>Use shadowing technique</li>
+<li>Practice speaking with AI or people</li>
+<li>Learn phrasal verbs and expressions</li>
+<li>Watch content without subtitles</li>
+<li>Improve pronunciation and intonation</li>
+</ul>
+
+<h3>C1 Conversation Example</h3>
+
+<p>
+A: Have you ever considered working abroad?
+</p>
+
+<p>
+B: Actually, I have. I believe it would broaden my horizons and help me grow professionally.
+</p>
+
+<p>
+A: That makes sense. Living in another country can completely change your perspective.
+</p>
+
+`;
+
+}
+
+content.innerHTML = html;
+
+modal.style.display = "flex";
+
+}
+
+function closeTheory(){
+
+document.getElementById("theoryModal")
+.style.display = "none";
+
+}
+
+</script>
 </body>
 </html>
