@@ -788,6 +788,119 @@ font-size:16px;
 }
 
 }
+  /* ================= GAMERS ================= */
+
+.gamers-intro {
+  text-align: center;
+  font-size: 1rem;
+  opacity: .85;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.gamers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.game-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.13);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  text-decoration: none;
+  color: white;
+}
+
+.game-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  background: rgba(255,255,255,.2);
+  box-shadow: 0 10px 35px rgba(0,0,0,.18);
+}
+
+.game-card:active {
+  transform: scale(.98);
+}
+
+.game-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+}
+
+.game-icon i {
+  font-size: 24px;
+  color: white;
+}
+
+.game-info {
+  flex: 1;
+}
+
+.game-info h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.game-info p {
+  font-size: .85rem;
+  opacity: .8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.game-arrow {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-arrow i {
+  font-size: 14px;
+  color: white;
+  opacity: .85;
+}
+
+@media(max-width:700px) {
+  .game-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 14px;
+  }
+  .game-icon i {
+    font-size: 20px;
+  }
+  .game-info h3 {
+    font-size: .95rem;
+  }
+  .game-info p {
+    font-size: .8rem;
+  }
+}
 /* ================= MOBILE ================= */
 
 @media(max-width:700px){
@@ -983,7 +1096,7 @@ onclick="showScreen('readingScreen')">
 </div>
 
 <div class="menu-text">
-<h3>Practice</h3>
+<h3>Practice I</h3>
 <p>reading and pronunciation</p>
 </div>
 
@@ -998,7 +1111,7 @@ onclick="showScreen('readingScreen')">
 
 <!-- Gamers -->
 <button class="menu-btn gamer-btn"
-onclick="showScreen('')">
+onclick="showScreen('gamersScreen')">
 
 <div class="menu-content">
 
@@ -1007,7 +1120,7 @@ onclick="showScreen('')">
 </div>
 
 <div class="menu-text">
-<h3>Gamers</h3>
+<h3>Practice II</h3>
 <p>Play while learning English</p>
 </div>
 
@@ -1050,7 +1163,123 @@ onclick="showScreen('theoryScreen')">
 </div>
 
 </section>
+<!-- ================= GAMERS ================= -->
 
+<section id="gamersScreen" class="screen">
+
+  <div class="topbar">
+    <button class="back-btn" onclick="showScreen('homeScreen')">⬅ Back</button>
+    <div class="page-title">🎮 English Games</div>
+  </div>
+
+  <div class="gamers-intro">
+    Play and practice your English with interactive games!
+  </div>
+
+  <div class="gamers-grid">
+
+    <div class="game-card" onclick="window.open('https://www.topmarks.co.uk/english-games/3-5-years/letters-and-sounds','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">
+        <i class="fa-solid fa-font"></i>
+      </div>
+      <div class="game-info">
+        <h3>Letras y Sonidos</h3>
+        <p>Aprende el alfabeto y los sonidos del inglés</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://wordwall.net/es/resource/17150635/los-colores-en-ingles','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#f43f5e,#e11d48)">
+        <i class="fa-solid fa-palette"></i>
+      </div>
+      <div class="game-info">
+        <h3>Colores</h3>
+        <p>Practica los colores en inglés de forma divertida</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://wordwall.net/es/resource/73082279/english/los-numeros-en-ingles','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">
+        <i class="fa-solid fa-hashtag"></i>
+      </div>
+      <div class="game-info">
+        <h3>Números</h3>
+        <p>Domina los números del 1 al 100 en inglés</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://arbolabc.com/vocabulario-en-ingles','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#10b981,#059669)">
+        <i class="fa-solid fa-spell-check"></i>
+      </div>
+      <div class="game-info">
+        <h3>Vocabulario</h3>
+        <p>Expande tu vocabulario con juegos visuales</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://wordwall.net/es/resource/3164911/food','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#f97316,#ea580c)">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+      <div class="game-info">
+        <h3>Food Questions</h3>
+        <p>Practica vocabulario de comida en inglés</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://wordwall.net/es/resource/37992519/ingl%C3%A9s/pronunciation-quiz','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#06b6d4,#0284c7)">
+        <i class="fa-solid fa-microphone-lines"></i>
+      </div>
+      <div class="game-info">
+        <h3>Pronunciation</h3>
+        <p>Mejora tu pronunciación con este quiz</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://lingua.com/es/ingles/escucha/','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">
+        <i class="fa-solid fa-headphones"></i>
+      </div>
+      <div class="game-info">
+        <h3>Listening</h3>
+        <p>Entrena tu comprensión auditiva en inglés</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://www.lyricsgaps.com/esp/exercises/mode/10365/Idina%20Menzel/Into%20The%20Unknow','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#ec4899,#be185d)">
+        <i class="fa-solid fa-music"></i>
+      </div>
+      <div class="game-info">
+        <h3>Songs</h3>
+        <p>Aprende inglés completando letras de canciones</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+    <div class="game-card" onclick="window.open('https://test-english.com/','_blank')">
+      <div class="game-icon" style="background:linear-gradient(135deg,#eab308,#ca8a04)">
+        <i class="fa-solid fa-clipboard-check"></i>
+      </div>
+      <div class="game-info">
+        <h3>Tests</h3>
+        <p>Pon a prueba tu nivel de inglés con tests reales</p>
+      </div>
+      <div class="game-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
+  </div>
+
+</section>
 <!-- ================= QUIZ ================= -->
 
 <section id="quizScreen" class="screen">
@@ -7726,4 +7955,6 @@ document.getElementById("theoryModal")
 </script>
 </body>
 </html>
+
+
 
